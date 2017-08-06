@@ -33,7 +33,7 @@ class Model extends \Kotchasan\Model
   {
     $model = new static;
     $sql2 = $model->db()->createQuery()
-      ->select(Sql::SUM('E.downloads'))
+      ->select(Sql::COUNT('E.id'))
       ->from('edocument_download E')
       ->where(array('E.document_id', 'A.id'));
     $query = $model->db()->createQuery()
