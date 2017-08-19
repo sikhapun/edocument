@@ -10,9 +10,6 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
---
--- ฐานข้อมูล: `swcm_smss`
---
 
 -- --------------------------------------------------------
 
@@ -20,20 +17,20 @@ SET time_zone = "+00:00";
 -- โครงสร้างตาราง `rp_edocument`
 --
 
-CREATE TABLE IF NOT EXISTS `rp_edocument` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `sender_id` int(11) unsigned NOT NULL,
+CREATE TABLE `rp_edocument` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sender_id` int(11) UNSIGNED NOT NULL,
   `reciever` text COLLATE utf8_unicode_ci NOT NULL,
-  `last_update` int(11) unsigned NOT NULL,
+  `last_update` int(11) UNSIGNED NOT NULL,
   `document_no` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `detail` text COLLATE utf8_unicode_ci NOT NULL,
   `topic` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ext` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
-  `size` double unsigned NOT NULL,
+  `size` double UNSIGNED NOT NULL,
   `file` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- dump ตาราง `rp_edocument`
@@ -50,14 +47,14 @@ INSERT INTO `rp_edocument` (`id`, `sender_id`, `reciever`, `last_update`, `docum
 -- โครงสร้างตาราง `rp_edocument_download`
 --
 
-CREATE TABLE IF NOT EXISTS `rp_edocument_download` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `document_id` int(10) unsigned NOT NULL,
-  `member_id` int(10) unsigned NOT NULL,
-  `downloads` int(10) unsigned NOT NULL,
-  `last_update` int(10) unsigned NOT NULL,
+CREATE TABLE `rp_edocument_download` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `document_id` int(10) UNSIGNED NOT NULL,
+  `member_id` int(10) UNSIGNED NOT NULL,
+  `downloads` int(10) UNSIGNED NOT NULL,
+  `last_update` int(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 -- --------------------------------------------------------

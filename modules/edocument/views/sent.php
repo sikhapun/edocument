@@ -77,6 +77,11 @@ class View extends \Gcms\View
           'options' => array(
             'delete' => '{LNG_Delete}'
           )
+        ),
+        array(
+          'class' => 'button green icon-plus',
+          'href' => $uri->createBackUri(array('module' => 'edocument-write')),
+          'text' => '{LNG_Send Document}'
         )
       ),
       /* คอลัมน์ที่สามารถค้นหาได้ */
@@ -144,12 +149,6 @@ class View extends \Gcms\View
           'href' => $uri->createBackUri(array('module' => 'edocument-write', 'id' => ':id')),
           'title' => '{LNG_Edit}'
         )
-      ),
-      /* ปุ่มเพิ่ม */
-      'addNew' => array(
-        'class' => 'button green icon-plus',
-        'href' => $uri->createBackUri(array('module' => 'edocument-write')),
-        'text' => '{LNG_Send Document}'
       )
     ));
     // save cookie

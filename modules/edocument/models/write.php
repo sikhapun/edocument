@@ -147,6 +147,9 @@ class Model extends \Kotchasan\Model
                       }
                     }
                   }
+                } elseif ($file->hasError()) {
+                  // ข้อผิดพลาดการอัปโหลด
+                  $ret['ret_'.$item] = Language::get($file->getErrorMessage());
                 } elseif ($index->id == 0) {
                   // ใหม่ ต้องมีไฟล์
                   $ret['ret_'.$item] = 'Please browse file';
