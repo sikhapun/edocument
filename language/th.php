@@ -226,6 +226,7 @@ return array(
   'The name of the mail server as localhost or smtp.gmail.com (To change the settings of your email is the default. To remove this box entirely.)' => 'ชื่อของเมล์เซิร์ฟเวอร์ เช่น localhost หรือ smtp.gmail.com (ต้องการเปลี่ยนค่ากำหนดของอีเมล์ทั้งหมดเป็นค่าเริ่มต้น ให้ลบข้อความในช่องนี้ออกทั้งหมด)',
   'The size of the files can be uploaded. (Should not exceed the value of the Server :upload_max_filesize.)' => 'ขนาดของไฟล์ที่สามารถอัพโหลดได้ (ไม่ควรเกินค่ากำหนดของเซิร์ฟเวอร์ :upload_max_filesize)',
   'The type of file is invalid' => 'ชนิดของไฟล์ไม่รองรับ',
+  'The recipient is listed in the selected group can be downloaded (You can select multiple groups)' => 'ผู้รับในกลุ่มที่เลือกสามารถดาวน์โหลดเกสารได้ (สามารถเลือกได้หลายกลุ่ม)',
   'There are new documents sent to you at %WEBTITLE%' => 'มีเอกสารใหม่ส่งถึงคุณที่ %WEBTITLE%',
   'This :name already exist' => 'มี :name นี้อยู่ก่อนแล้ว',
   'Time zone' => 'เขตเวลา',
