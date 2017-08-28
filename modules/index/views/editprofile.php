@@ -26,12 +26,12 @@ class View extends \Gcms\View
    * module=editprofile
    *
    * @param array $user
+   * @param array $login
    * @return string
    */
-  public function render($user)
+  public function render($user, $login)
   {
-    // สามารถตั้งค่าระบบได้
-    $admin_login = Login::isAdmin();
+    $login_admin = Login::isAdmin();
     // register form
     $form = Html::create('form', array(
         'id' => 'setup_frm',
@@ -47,14 +47,14 @@ class View extends \Gcms\View
         'title' => '{LNG_Login information}'
       ));
       $groups = $fieldset->add('groups');
-      // username
+      // username (แอดมิน และตัวเอง สามารถแก้ไขได้)
       $groups->add('text', array(
         'id' => 'register_username',
         'itemClass' => 'width50',
         'labelClass' => 'g-input icon-email',
         'label' => '{LNG_Email}',
         'comment' => '{LNG_Email address used for login or request a new password}',
-        'disabled' => $admin_login ? false : true,
+        'disabled' => $login_admin ? false : true,
         'maxlength' => 50,
         'value' => $user['username'],
         'validator' => array('keyup,change', 'checkUsername', 'index.php/index/model/checker/username')
@@ -156,7 +156,7 @@ class View extends \Gcms\View
       'maxlength' => 10,
       'value' => $user['zipcode']
     ));
-    if ($admin_login) {
+    if ($login_admin) {
       $fieldset = $form->add('fieldset', array(
         'title' => '{LNG_Other}'
       ));
@@ -166,7 +166,7 @@ class View extends \Gcms\View
         'itemClass' => 'item',
         'label' => '{LNG_Member status}',
         'labelClass' => 'g-input icon-star0',
-        'disabled' => $admin_login['id'] == $user['id'] ? true : false,
+        'disabled' => $login_admin['id'] == $user['id'] ? true : false,
         'options' => self::$cfg->member_status,
         'value' => $user['status']
       ));

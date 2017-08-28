@@ -48,6 +48,7 @@ class Csv
    * @param string $file ชื่อไฟล์ ไม่ต้องมีนามสกุล
    * @param array $header ส่วนหัวของข้อมูล
    * @param array $datas ข้อมูล
+   * @param string $charset ภาษาของ CSV ค่าเริ่มต้นคือ Windows-874 (ภาษาไทย)
    */
   public static function send($file, $header, $datas, $charset = 'Windows-874')
   {
@@ -59,7 +60,9 @@ class Csv
     // charset
     $charset = strtoupper($charset);
     // csv header
-    fputcsv($f, self::convert($header, $charset));
+    if (!empty($header)) {
+      fputcsv($f, self::convert($header, $charset));
+    }
     // content
     foreach ($datas as $item) {
       fputcsv($f, self::convert($item, $charset));

@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * @filesource modules/edocument/controllers/home.php
  * @link http://www.kotchasan.com/
  * @copyright 2016 Goragod.com
@@ -24,7 +24,7 @@ class Controller extends \Kotchasan\KBase
    * ฟังก์ชั่นสร้าง card
    *
    * @param Request $request
-   * @param \Kotchasan\Html $card
+   * @param \Kotchasan\Collection $card
    * @param array $login
    */
   public static function addCard(Request $request, $card, $login)

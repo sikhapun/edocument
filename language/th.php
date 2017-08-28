@@ -175,7 +175,6 @@ return array(
   'Saved successfully' => 'บันทึกเรียบร้อย',
   'School' => 'โรงเรียน',
   'School Name' => 'ชื่อโรงเรียน',
-  'School settings' => 'ตั้งค่าโรงเรียน',
   'SCHOOL_CATEGORY' => array(
     'class' => 'ชั้นเรียน',
     'room' => 'ห้องเรียน'

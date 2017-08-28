@@ -111,8 +111,8 @@ class Model extends \Kotchasan\Model
     // คืนค่าแอเรย์ของข้อมูลสมาชิกใหม่
     $save['permission'] = array();
     if (!empty($permission)) {
-      foreach ($permission as $key => $value) {
-        $save['permission'] [] = $value;
+      foreach ($permission As $item) {
+        $save['permission'][] = $item;
       }
     }
     return $save;

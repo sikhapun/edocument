@@ -3,7 +3,7 @@
 return array(
   'BOOLEANS' => array(
     0 => 'Disable',
-    1 => 'Enamle'
+    1 => 'Enabled'
   ),
   'DATE_FORMAT' => 'd M Y, H:i',
   'DATE_LONG' => array(
@@ -57,24 +57,7 @@ return array(
     12 => 'Dec'
   ),
   'PERMISSIONS' => array(
-    'can_config' => 'Can configure the system',
-    'can_login' => 'Can login'
-  ),
-  'PERSONNEL_CATEGORY' => array(
-    'position' => 'Position'
-  ),
-  'PERSONNEL_DETAILS' => array(
-    'phone' => 'Phone',
-    'email' => 'Email',
-    'address' => 'Address'
-  ),
-  'PERSONNEL_STATUS' => array(
-    0 => 'Current personnel',
-    1 => 'Past personnel'
-  ),
-  'SCHOOL_CATEGORY' => array(
-    'class' => 'Class',
-    'room' => 'Room'
+    'can_config' => 'Can configure the system'
   ),
   'SEXES' => array(
     'f' => 'Female',
@@ -84,12 +67,5 @@ return array(
     '' => 'Clear Text',
     'ssl' => 'Server using a secure connection (SSL)'
   ),
-  'YEAR_OFFSET' => 0,
-  'REPAIR_CATEGORIES' => array(
-    'repairstatus' => 'Repair status'
-  ),
-  'CURRENCY_UNITS' => array(
-    'THB' => 'Baht',
-    'USD' => 'Dollar'
-  ),
+  'YEAR_OFFSET' => 0
 );

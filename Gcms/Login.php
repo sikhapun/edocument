@@ -38,10 +38,10 @@ class Login extends \Kotchasan\Login implements \Kotchasan\LoginInterface
     // model
     $model = new Model;
     $query = $model->db()->createQuery()
-      ->select('U.*')
+      ->select()
       ->from('user U')
       ->where($where, 'OR')
-      ->order('status DESC')
+      ->order('U.status DESC')
       ->toArray();
     $login_result = null;
     foreach ($query->execute() as $item) {
@@ -125,7 +125,7 @@ class Login extends \Kotchasan\Login implements \Kotchasan\LoginInterface
       if ($login['status'] == 1) {
         // แอดมิน
         return true;
-      } else {
+      } elseif (!empty($permission)) {
         foreach ((array)$permission as $item) {
           if (in_array($item, $login['permission'])) {
             // มีสิทธิ์
