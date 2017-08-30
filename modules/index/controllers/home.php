@@ -49,7 +49,6 @@ class Controller extends \Gcms\Controller
     ));
     // Login
     $login = Login::isMember();
-    /*
     // card
     $card = new Collection;
     // โหลด Component หน้า Home
@@ -86,8 +85,6 @@ class Controller extends \Gcms\Controller
         'innerHTML' => $item
       ));
     }
-     
-     */
     return $section->render();
   }
 
