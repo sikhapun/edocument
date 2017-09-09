@@ -14,12 +14,11 @@
       var options = {
         className: 'gautocomplete',
         itemClass: 'item',
-        prepare: $K.emptyFunction,
         callBack: $K.emptyFunction,
         get: $K.emptyFunction,
         populate: $K.emptyFunction,
-        onEmpty: $K.emptyFunction,
         onSuccess: $K.emptyFunction,
+        onChanged: $K.emptyFunction,
         loadingClass: 'wait',
         url: false,
         interval: 300
@@ -79,17 +78,12 @@
       };
       function _populateitems(datas) {
         display.innerHTML = '';
+        var f, i, r, p;
         list = new Array();
-        var f,
-          ret = options.prepare.call(datas);
-        if (ret && ret != '') {
-          var p = ret.toDOM();
-          display.appendChild(p);
-        }
-        for (var i in datas) {
-          ret = options.populate.call(datas[i]);
-          if (ret && ret != '') {
-            p = ret.toDOM();
+        for (i in datas) {
+          r = options.populate.call(datas[i]);
+          if (r && r != '') {
+            p = r.toDOM();
             f = p.firstChild;
             $G(f).className = options.itemClass;
             f.datas = datas[i];
@@ -110,6 +104,7 @@
       var _search = function () {
         window.clearTimeout(self.timer);
         req.abort();
+        options.onChanged.call(input);
         if (!cancleEvent && options.url) {
           var q = options.get.call(this);
           if (q && q != '') {
@@ -144,9 +139,6 @@
             }, options.interval);
           } else {
             _hide();
-            if (Object.isFunction(options.onEmpty)) {
-              options.onEmpty.call(input);
-            }
           }
         }
         cancleEvent = false;
@@ -203,3 +195,38 @@
     }
   };
 }());
+function initAutoComplete(id, model, displayFields, icon, options) {
+  displayFields = displayFields.split(',');
+  function doGetQuery() {
+    var q = null,
+      value = $E(id).value;
+    if (value != '') {
+      q = (id + '=' + encodeURIComponent(value));
+    }
+    return q;
+  }
+  function doCallBack() {
+    for (var prop in this) {
+      $G(prop).setValue(this[prop]);
+    }
+    $G(id).valid();
+  }
+  function doPopulate() {
+    var datas = new Array();
+    for (var i in displayFields) {
+      datas.push(this[displayFields[i]]);
+    }
+    var patt = new RegExp('(' + $E(id).value.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&') + ')', 'gi');
+    return '<p><span class="icon-' + (icon || 'search') + '">' + datas.join(' ').unentityify().replace(patt, '<em>$1</em>') + '</span></p>';
+  }
+  var o = {
+    get: doGetQuery,
+    populate: doPopulate,
+    callBack: doCallBack,
+    url: 'index.php/' + model
+  };
+  for (var prop in options) {
+    o[prop] = options[prop];
+  }
+  new GAutoComplete(id, o);
+}
