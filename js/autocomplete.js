@@ -31,6 +31,7 @@
       var listindex = 0;
       var list = new Array();
       var input = $G(id);
+      var text = input.value;
       var req = new GAjax();
       var self = this;
       if (!$E('gautocomplete_div')) {
@@ -63,6 +64,7 @@
           _hide();
           try {
             options.callBack.call(this.datas);
+            text = input.value;
           } catch (e) {
           }
         }
@@ -104,7 +106,9 @@
       var _search = function () {
         window.clearTimeout(self.timer);
         req.abort();
-        options.onChanged.call(input);
+        if (text != input.value) {
+          options.onChanged.call(input);
+        }
         if (!cancleEvent && options.url) {
           var q = options.get.call(this);
           if (q && q != '') {
