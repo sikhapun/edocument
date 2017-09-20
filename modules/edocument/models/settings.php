@@ -31,9 +31,9 @@ class Model extends \Kotchasan\KBase
   public function submit(Request $request)
   {
     $ret = array();
-    // session, token, can_config
+    // session, token, can_config, ไม่ใช่สมาชิกตัวอย่าง
     if ($request->initSession() && $request->isSafe() && $login = Login::isMember()) {
-      if ($login['active'] == 1 && Login::checkPermission($login, 'can_config')) {
+      if (Login::notDemoMode($login) && Login::checkPermission($login, 'can_config')) {
         // รับค่าจากการ POST
         $typies = array();
         foreach (explode(',', strtolower($request->post('edocument_file_typies')->filter('a-zA-Z0-9,'))) as $typ) {

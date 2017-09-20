@@ -1,10 +1,10 @@
 <?php
 /* config.php */
-return array (
+return array(
   'edocument_format_no' => 'ที่ ศธ1234/%04d',
   'edocument_send_mail' => 1,
-  'edocument_file_typies' => 
-  array (
+  'edocument_file_typies' =>
+  array(
     0 => 'doc',
     1 => 'ppt',
     2 => 'pptx',
@@ -18,14 +18,14 @@ return array (
   'web_title' => 'E-Document',
   'web_description' => 'ระบบสารบรรณอิเล็กทรอนิกส์',
   'timezone' => 'Asia/Bangkok',
-  'member_status' => 
-  array (
-    0 => 'นักเรียน',
+  'member_status' =>
+  array(
+    0 => 'สมาชิก',
     1 => 'ผู้ดูแลระบบ',
-    2 => 'ครู-อาจารย์',
+    2 => 'เจ้าหน้าที่',
   ),
-  'color_status' => 
-  array (
+  'color_status' =>
+  array(
     0 => '#259B24',
     1 => '#FF0000',
     2 => '#0E0EDA',

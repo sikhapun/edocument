@@ -55,9 +55,9 @@ class Model extends \Kotchasan\Model
   public function action(Request $request)
   {
     $ret = array();
-    // session, referer, member
+    // session, referer, member, ไม่ใช่สมาชิกตัวอย่าง
     if ($request->initSession() && $request->isReferer() && $login = Login::isMember()) {
-      if ($login['active'] == 1) {
+      if (Login::notDemoMode($login)) {
         // รับค่าจากการ POST
         $id = $request->post('id')->toString();
         $action = $request->post('action')->toString();

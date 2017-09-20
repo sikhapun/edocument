@@ -25,9 +25,9 @@ class Model extends \Kotchasan\Model
   public function index(Request $request)
   {
     $ret = array();
-    // session, referer, member
+    // session, referer, member, ไม่ใช่สมาชิกตัวอย่าง
     if ($request->initSession() && $request->isReferer() && $login = Login::isMember()) {
-      if ($login['active'] == 1 && preg_match('/download_([0-9]+)/', $request->post('id')->toString(), $match)) {
+      if (Login::notDemoMode($login) && preg_match('/download_([0-9]+)/', $request->post('id')->toString(), $match)) {
         $model = new static;
         // อ่านรายการที่เลือก
         $result = $model->db()->createQuery()

@@ -68,9 +68,9 @@ class Model extends \Kotchasan\Model
   public function submit(Request $request)
   {
     $ret = array();
-    // session, token, can_upload_edocument
+    // session, token, member, ไม่ใช่สมาชิกตัวอย่าง
     if ($request->initSession() && $request->isSafe() && $login = Login::isMember()) {
-      if ($login['active'] == 1) {
+      if (Login::notDemoMode($login)) {
         // ค่าที่ส่งมา
         $save = array(
           'document_no' => $request->post('document_no')->topic(),
