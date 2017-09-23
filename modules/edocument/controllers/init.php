@@ -31,6 +31,7 @@ class Controller extends \Kotchasan\KBase
    */
   public static function execute(Request $request, $menu, $login)
   {
+    // รายการเมนูย่อย
     $submenus = array(
       array(
         'text' => '{LNG_List of} {LNG_received document}',
