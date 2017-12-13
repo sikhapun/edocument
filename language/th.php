@@ -55,6 +55,10 @@ return array(
   'Document title' => 'หัวข้อเอกสาร',
   'Download' => 'ดาวน์โหลด',
   'Download history' => 'ประวัติการดาวน์โหลด',
+  'DOWNLOAD_ACTIONS' => array(
+    0 => 'ดาวน์โหลดไฟล์',
+    1 => 'เปิดไฟล์ (ที่รู้จัก)'
+  ),
   'drag to order' => 'ลากเพื่อจัดลำดับ',
   'E-Document' => 'งานสารบรรณ',
   'E-Document list' => 'รายการเอกสาร',
@@ -175,6 +179,7 @@ return array(
   'Saved successfully' => 'บันทึกเรียบร้อย',
   'School' => 'โรงเรียน',
   'School Name' => 'ชื่อโรงเรียน',
+  'School settings' => 'ตั้งค่าโรงเรียน',
   'SCHOOL_CATEGORY' => array(
     'class' => 'ชั้นเรียน',
     'room' => 'ห้องเรียน'
@@ -198,8 +203,8 @@ return array(
   ),
   'Short description about your website' => 'ข้อความสั้นๆอธิบายว่าเป็นเว็บไซต์เกี่ยวกับอะไร',
   'Show' => 'แสดง',
-  'Sign In' => 'เข้าสู่ระบบ',
-  'Sign Out' => 'ออกจากระบบ',
+  'Sign in' => 'เข้าสู่ระบบ',
+  'Sign out' => 'ออกจากระบบ',
   'Site Name' => 'ชื่อของเว็บไซต์',
   'Site settings' => 'ตั้งค่าเว็บไซต์',
   'size of' => 'ขนาดของ',
@@ -246,6 +251,7 @@ return array(
   'Website title' => 'ชื่อเว็บ',
   'Welcome' => 'สวัสดี',
   'When adding a new document Email alert to the recipient. When enabled this option.' => 'เมื่อมีการสร้างเอกสารใหม่ สามารถส่งอีเมล์แจ้งเตือนไปยังผู้รับได้ เมื่อเปิดใช้ความสามารถนี้',
+  'When download' => 'เมื่อคลิกดาวน์โหลด',
   'Width' => 'กว้าง',
   'With selected' => 'ทำกับที่เลือก',
   'YEAR_OFFSET' => 543,

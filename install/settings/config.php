@@ -15,6 +15,7 @@ return array(
     7 => 'pdf',
   ),
   'edocument_upload_size' => 2097152,
+  'edocument_download_action' => 0,
   'web_title' => 'E-Document',
   'web_description' => 'ระบบสารบรรณอิเล็กทรอนิกส์',
   'timezone' => 'Asia/Bangkok',
