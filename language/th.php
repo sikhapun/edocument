@@ -177,13 +177,6 @@ return array(
   'Save' => 'บันทึก',
   'Save and email completed' => 'บันทึกและส่งอีเมล์เรียบร้อย',
   'Saved successfully' => 'บันทึกเรียบร้อย',
-  'School' => 'โรงเรียน',
-  'School Name' => 'ชื่อโรงเรียน',
-  'School settings' => 'ตั้งค่าโรงเรียน',
-  'SCHOOL_CATEGORY' => array(
-    'class' => 'ชั้นเรียน',
-    'room' => 'ห้องเรียน'
-  ),
   'scroll to top' => 'เลื่อนขึ้นด้านบน',
   'Search' => 'ค้นหา',
   'Search <strong>:search</strong> found :count entries, displayed :start to :end, page :page of :total pages' => 'ค้นหา <strong>:search</strong> พบ :count รายการ แสดงรายการที่ :start - :end หน้าที่ :page จากทั้งหมด :total หน้า',
@@ -250,6 +243,7 @@ return array(
   'Vice-Director' => 'รองผู้อำนวยการ',
   'Website title' => 'ชื่อเว็บ',
   'Welcome' => 'สวัสดี',
+  'Welcome %s, login complete' => 'สวัสดี คุณ %s ยินดีต้อนรับเข้าสู่ระบบ',
   'When adding a new document Email alert to the recipient. When enabled this option.' => 'เมื่อมีการสร้างเอกสารใหม่ สามารถส่งอีเมล์แจ้งเตือนไปยังผู้รับได้ เมื่อเปิดใช้ความสามารถนี้',
   'When download' => 'เมื่อคลิกดาวน์โหลด',
   'Width' => 'กว้าง',
@@ -257,6 +251,7 @@ return array(
   'YEAR_OFFSET' => 543,
   'You can select multiple recipients' => 'คุณสามารถเลือกผู้รับเอกสารได้หลายคน',
   'You received a new document %URL%' => 'คุณได้รับเอกสารใหม่ %URL%',
+  'You want to' => 'คุณต้องการ',
   'Your message was sent successfully' => 'ส่งข้อความไปยังผู้รับเรียบร้อยแล้ว',
   'Your new password is' => 'รหัสผ่านใหม่ของคุณคือ',
   'Zipcode' => 'รหัสไปรษณีย์'
