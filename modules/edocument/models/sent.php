@@ -102,7 +102,8 @@ class Model extends \Kotchasan\Model
                 // บันทึกรายละเอียดการดาวน์โหลดลง SESSION
                 $_SESSION[$id] = array(
                   'file' => $file,
-                  'name' => $result->topic.'.'.$result->ext
+                  'name' => $result->topic.'.'.$result->ext,
+                  'mime' => \Kotchasan\Mime::get($result->ext)
                 );
                 // คืนค่า
                 $ret['location'] = WEB_URL.'modules/edocument/filedownload.php?id='.$id;

@@ -491,6 +491,7 @@ input[type="radio"],
 input[type="file"] {
   background-color: transparent;
   border-style: none;
+  background-image: url() !important;
 }
 select,
 input[type="text"],
@@ -735,11 +736,6 @@ select.wait,
 textarea.wait,
 .button.wait {
   background-image: url(data:image/gif;base64,R0lGODlhEAAQALMPAHp6evf394qKiry8vJOTk83NzYKCgubm5t7e3qysrMXFxe7u7pubm7S0tKOjo////yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJCAAPACwAAAAAEAAQAAAETPDJSau9NRDAgWxDYGmdZADCkQnlU7CCOA3oNgXsQG2FRhUAAoWDIU6MGeSDR0m4ghRa7JjIUXCogqQzpRxYhi2HILsOGuJxGcNuTyIAIfkECQgADwAsAAAAABAAEAAABGLwSXmMmjhLAQjSWDAYQHmAz8GVQPIESxZwggIYS0AIATYAvAdh8OIQJwRAQbJkdjAlUCA6KfU0VEmyGWgWnpNfcEAoAo6SmWtBUtCuk9gjwQKeQAeWYQAHIZICKBoKBncTEQAh+QQJCAAPACwAAAAAEAAQAAAEWvDJORejGCtQsgwDAQAGGWSHMK7jgAWq0CGj0VEDIJxPnvAU0a13eAQKrsnI81gqAZ6AUzIonA7JRwFAyAQSgCQsjCmUAIhjDEhlrQTFV+lMGLApWwUzw1jsIwAh+QQJCAAPACwAAAAAEAAQAAAETvDJSau9L4QaBgEAMWgEQh0CqALCZ0pBKhRSkYLvM7Ab/OGThoE2+QExyAdiuexhVglKwdCgqKKTGGBgBc00Np7VcVsJDpVo5ydyJt/wCAAh+QQJCAAPACwAAAAAEAAQAAAEWvDJSau9OAwCABnBtQhdCQjHlQhFWJBCOKWPLAXk8KQIkCwWBcAgMDw4Q5CkgOwohCVCYTIwdAgPolVhWSQAiN1jcLLVQrQbrBV4EcySA8l0Alo0yA8cw+9TIgAh+QQFCAAPACwAAAAAEAAQAAAEWvDJSau9WA4AyAhWMChPwXHCQRUGYARgKQBCzJxAQgXzIC2KFkc1MREoHMTAhwQ0Y5oBgkMhAAqUw8mgWGho0EcCx5DwaAUQrGXATg6zE7bwCQ2sAGZmz7dEAAA7) !important;
-}
-input[type="checkbox"],
-input[type="radio"] {
-  background-image: url();
-  vertical-align: middle;
 }
 @-moz-keyframes hightlight_red {
   0% {background-color: rgba(255, 0, 0, 0.5);}
@@ -1273,26 +1269,39 @@ form .comment {
   max-height: 200px;
   max-width: 200px;
 }
-.radiogroups, .checkboxgroups {
+.radiogroups,
+.checkboxgroups {
   display: block;
   overflow: hidden;
 }
-.radiogroups > label, .checkboxgroups > label {
+.radiogroups > label,
+.checkboxgroups > label {
   padding: 0 1em;
 }
-.radiogroups.g-input > label, .checkboxgroups.g-input > label {
+.radiogroups.g-input > label,
+.checkboxgroups.g-input > label {
   padding: 0.25em 1em 0.25em 0.25em;
   cursor: pointer;
   float: left;
 }
-.radiogroups.multiline > label, .checkboxgroups.multiline > label {
+.wicon > .radiogroups.g-input > label,
+.wicon > .checkboxgroups.g-input > label {
+  padding: 0;
+}
+.radiogroups.multiline > label,
+.checkboxgroups.multiline > label {
   float: none;
   display: block;
 }
-.radiogroups.g-input > label > input, .checkboxgroups.g-input > label > input {
+.radiogroups.g-input > label > input,
+.checkboxgroups.g-input > label > input {
   height: 1.65em;
+  margin-right: 5px;
 }
-.radiogroups.g-input > label:hover, .checkboxgroups.g-input > label:hover {
+.wicon > .radiogroups.g-input input:checked ~ [class^="icon-"],
+.wicon > .checkboxgroups.g-input input:checked ~ [class^="icon-"],
+.radiogroups.g-input > label:hover,
+.checkboxgroups.g-input > label:hover {
   background-color: #3297FD;
   color: #FFF;
 }
@@ -1301,6 +1310,25 @@ form .comment {
 .checkboxgroups.g-input[class*=" icon-"],
 .checkboxgroups.g-input[class^="icon-"] {
   padding-left: 2.5em;
+}
+.wicon > .checkboxgroups.g-input > label > input,
+.wicon > .radiogroups.g-input > label > input {
+  display: none;
+}
+.wicon > .checkboxgroups.g-input span,
+.wicon > .radiogroups.g-input span {
+  padding: 0.25em 1em 0.25em 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: inherit;
+}
+.checkboxgroups [class*=" icon-"]:before,
+.checkboxgroups [class^="icon-"]:before,
+.radiogroups [class*=" icon-"]:before,
+.radiogroups [class^="icon-"]:before {
+  line-height: 1;
+  color: inherit;
+  margin-right: 5px;
 }
 /* dropdown panel */
 .gdpanel {
