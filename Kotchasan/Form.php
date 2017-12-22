@@ -221,7 +221,7 @@ class Form extends \Kotchasan\KBase
       if (empty($labelClass) && empty($label)) {
         $input .= $element;
       } elseif (isset($type) && ($type === 'checkbox' || $type === 'radio')) {
-        $input .= '<label'.(empty($labelClass) ? '' : ' class="'.$labelClass.'"').'>'.$element.'&nbsp;'.$label.'</label>';
+        $input .= '<label'.(empty($labelClass) ? '' : ' class="'.$labelClass.'"').'>'.$element.$label.'</label>';
       } else {
         $input .= '<label'.(empty($labelClass) ? '' : ' class="'.$labelClass.'"').'>'.(empty($label) ? '' : $label.'&nbsp;').$element.'</label>';
       }
