@@ -106,7 +106,7 @@ class Form extends \Kotchasan\KBase
             continue;
           } elseif (preg_match('/^on([a-z]+)/', $k, $match)) {
             $event[$match[1]] = $v;
-          } else {
+          } elseif (!is_array($v)) {
             $prop[$k] = $k.'="'.$v.'"';
             $$k = $v;
           }
@@ -337,6 +337,15 @@ class Form extends \Kotchasan\KBase
     $obj->tag = 'input';
     $attributes['type'] = 'text';
     $attributes['class'] = 'color';
+    $obj->attributes = $attributes;
+    return $obj;
+  }
+
+  public static function range($attributes = array())
+  {
+    $obj = new static;
+    $obj->tag = 'input';
+    $attributes['type'] = 'range';
     $obj->attributes = $attributes;
     return $obj;
   }
