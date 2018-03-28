@@ -12,7 +12,7 @@
  */
 define('ROOT_PATH', str_replace('\\', '/', dirname(__FILE__)).'/');
 /*
- * ไดเร็คทอรี่เก็บไฟล์ของ user
+ * โฟลเดอร์เก็บข้อมูล
  */
 define('DATA_FOLDER', 'datas/');
 /*
