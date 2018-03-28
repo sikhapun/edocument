@@ -39,7 +39,7 @@ class Model extends \Kotchasan\Model
         ->first();
       if ($user) {
         // permission
-        $user['permission'] = empty($user['permission']) ? array() : trim(explode(',', $user['permission']), " \t\n\r\0\x0B,");
+        $user['permission'] = empty($user['permission']) ? array() : explode(',', trim($user['permission'], " \t\n\r\0\x0B,"));
         return $user;
       }
     }
@@ -89,7 +89,7 @@ class Model extends \Kotchasan\Model
             // ไม่ใช่แอดมินแก้ไขได้แค่ตัวเองเท่านั้น
             $user = null;
           } else {
-            // ไม่ใช่แอดมินและไม่ใช่ตัวเอง ไม่สามารถอัปเดท status ได้
+            // ไม่ใช่แอดมินและไม่ใช่ตัวเอง ไม่สามารถอัปเดทได้
             unset($save['status']);
           }
         }
