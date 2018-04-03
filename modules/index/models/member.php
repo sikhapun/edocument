@@ -64,11 +64,9 @@ class Model extends \Kotchasan\Model
         $action = $request->post('action')->toString();
         // id ที่ส่งมา
         if (preg_match_all('/,?([0-9]+),?/', $request->post('id')->toString(), $match)) {
-          // ตาราง user
-          $user_table = $this->getTableName('user');
           if ($action === 'delete') {
             // ลบสมาชิก
-            $this->db()->delete($user_table, array(
+            $this->db()->delete($this->getTableName('user'), array(
               array('id', $match[1]),
               array('id', '!=', 1)
               ), 0);
@@ -107,7 +105,7 @@ class Model extends \Kotchasan\Model
             }
           } elseif (preg_match('/active_([01])/', $action, $match2)) {
             // สถานะการเข้าระบบ
-            $model->db()->update($user_table, array(
+            $this->db()->update($this->getTableName('user'), array(
               array('id', $match[1]),
               array('id', '!=', '1')
               ), array(
