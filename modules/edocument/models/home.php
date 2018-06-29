@@ -1,17 +1,19 @@
 <?php
 /**
  * @filesource modules/edocument/models/home.php
- * @link http://www.kotchasan.com/
+ *
+ * @see http://www.kotchasan.com/
+ *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
  */
 
 namespace Edocument\Home;
 
-use \Kotchasan\Database\Sql;
+use Kotchasan\Database\Sql;
 
 /**
- * โมเดลสำหรับอ่านข้อมูลแสดงในหน้า  Home
+ * โมเดลสำหรับอ่านข้อมูลแสดงในหน้า  Home.
  *
  * @author Goragod Wiriya <admin@goragod.com>
  *
@@ -19,28 +21,28 @@ use \Kotchasan\Database\Sql;
  */
 class Model extends \Kotchasan\Model
 {
+    /**
+     * อ่านเอกสารใหม่.
+     *
+     * @return object
+     */
+    public static function getNew($login)
+    {
+        $model = new static();
+        $search = $model->db()->createQuery()
+            ->from('edocument A')
+            ->where(array(
+                array('A.reciever', 'LIKE', '%,'.$login['status'].',%'),
+            ))
+            ->notExists('edocument_download', array(
+                array('document_id', 'A.id'),
+                array('member_id', $login['id']),
+            ))
+            ->first(Sql::COUNT('A.id', 'count'));
+        if ($search) {
+            return $search->count;
+        }
 
-  /**
-   * อ่านเอกสารใหม่
-   *
-   * @return object
-   */
-  public static function getNew($login)
-  {
-    $model = new static;
-    $search = $model->db()->createQuery()
-      ->from('edocument A')
-      ->where(array(
-        array('A.reciever', 'LIKE', '%,'.$login['status'].',%')
-      ))
-      ->notExists('edocument_download', array(
-        array('document_id', 'A.id'),
-        array('member_id', $login['id'])
-      ))
-      ->first(Sql::COUNT('A.id', 'count'));
-    if ($search) {
-      return $search->count;
+        return 0;
     }
-    return 0;
-  }
 }
