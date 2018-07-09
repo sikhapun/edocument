@@ -129,7 +129,7 @@ class View extends \Gcms\View
             ),
         ));
         // save cookie
-        setcookie('edocument_perPage', $table->perPage, time() + 3600 * 24 * 365, '/');
+        setcookie('edocument_perPage', $table->perPage, time() + 2592000, '/', null, null, true);
 
         return $table->render();
     }
