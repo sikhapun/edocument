@@ -11,7 +11,7 @@ return array(
   'Authentication require' => 'การตรวจสอบความถูกต้อง',
   'BOOLEANS' => array(
     0 => 'ปิดใช้งาน',
-    1 => 'เปิดใช้งาน'
+    1 => 'เปิดใช้งาน',
   ),
   'Browse file' => 'เลือกไฟล์',
   'Browse image uploaded, type :type size :width*:height pixel (automatic resize)' => 'เลือกรูปภาพอัปโหลด ชนิด :type ขนาด :width*:height พิกเซล (ปรับขนาดอัตโนมัติ)',
@@ -19,8 +19,9 @@ return array(
   'Can login' => 'สามารถเข้าระบบได้',
   'Can not be performed this request. Because they do not find the information you need or you are not allowed' => 'ไม่สามารถดำเนินการตามที่ร้องขอได้ เนื่องจากไม่พบข้อมูลที่ต้องการ หรือ คุณไม่มีสิทธิ์',
   'Can upload your document file' => 'สามารถอัพโหลดไฟล์เอกสารได้',
-  'clear selected' => 'ไม่เลือก',
-  'click to edit' => 'คลิกเพื่อแก้ไข',
+  'Change language' => 'สลับภาษา',
+  'Clear selected' => 'ไม่เลือก',
+  'Click to edit' => 'คลิกเพื่อแก้ไข',
   'Create' => 'สร้าง',
   'Create new account' => 'สร้างบัญชีใหม่',
   'Created' => 'สร้างเมื่อ',
@@ -33,7 +34,7 @@ return array(
     3 => 'พุธ',
     4 => 'พฤหัสบดี',
     5 => 'ศุกร์',
-    6 => 'เสาร์'
+    6 => 'เสาร์',
   ),
   'DATE_SHORT' => array(
     0 => 'อา.',
@@ -42,7 +43,7 @@ return array(
     3 => 'พ.',
     4 => 'พฤ.',
     5 => 'ศ.',
-    6 => 'ส.'
+    6 => 'ส.',
   ),
   'Delete' => 'ลบ',
   'Description' => 'คำอธิบาย',
@@ -64,7 +65,7 @@ return array(
   'E-Document list' => 'รายการเอกสาร',
   'E-Documents' => 'เอกสาร',
   'Edit' => 'แก้ไข',
-  'Editing your account' => 'แก้ไขข้อมูลส่วนตัว',
+  'Editing your account' => 'แก้ไขข้อมูลส่วนตัวสมาชิก',
   'Email' => 'อีเมล',
   'Email address used for login or request a new password' => 'ที่อยู่อีเมล ใช้สำหรับการเข้าระบบหรือการขอรหัสผ่านใหม่',
   'Email addresses for sender and do not reply such as no-reply@domain.tld' => 'ทีอยู่อีเมลใช้เป็นผู้ส่งจดหมาย สำหรับจดหมายที่ไม่ต้องการตอบกลับ เช่น no-reply@domain.tld',
@@ -107,7 +108,7 @@ return array(
   'Mail server settings' => 'ค่ากำหนดของเมล์เซิร์ฟเวอร์',
   'MAIL_PROGRAMS' => array(
     0 => 'ส่งจดหมายด้วย PHP',
-    1 => 'ส่งจดหมายด้วย PHPMailer (แนะนำ)'
+    1 => 'ส่งจดหมายด้วย PHPMailer (แนะนำ)',
   ),
   'Manage languages' => 'จัดการภาษา',
   'Member list' => 'รายชื่อสมาชิก',
@@ -126,7 +127,7 @@ return array(
     9 => 'กันยายน',
     10 => 'ตุลาคม',
     11 => 'พฤศจิกายน',
-    12 => 'ธันวาคม'
+    12 => 'ธันวาคม',
   ),
   'MONTH_SHORT' => array(
     1 => 'ม.ค.',
@@ -140,7 +141,7 @@ return array(
     9 => 'ก.ย.',
     10 => 'ต.ค.',
     11 => 'พ.ย.',
-    12 => 'ธ.ค.'
+    12 => 'ธ.ค.',
   ),
   'Name' => 'ชื่อ',
   'New' => 'ใหม่',
@@ -156,7 +157,7 @@ return array(
   'Passwords must be at least four characters' => 'รหัสผ่านต้องไม่น้อยกว่า 4 ตัวอักษร',
   'Permission' => 'สิทธิ์การใช้งาน',
   'PERMISSIONS' => array(
-    'can_config' => 'สามารถตั้งค่าระบบได้'
+    'can_config' => 'สามารถตั้งค่าระบบได้',
   ),
   'Phone' => 'โทรศัพท์',
   'Please fill in' => 'กรุณากรอก',
@@ -192,7 +193,7 @@ return array(
   'Sex' => 'เพศ',
   'SEXES' => array(
     'f' => 'หญิง',
-    'm' => 'ชาย'
+    'm' => 'ชาย',
   ),
   'Short description about your website' => 'ข้อความสั้นๆอธิบายว่าเป็นเว็บไซต์เกี่ยวกับอะไร',
   'Show' => 'แสดง',
@@ -254,5 +255,5 @@ return array(
   'You want to' => 'คุณต้องการ',
   'Your message was sent successfully' => 'ส่งข้อความไปยังผู้รับเรียบร้อยแล้ว',
   'Your new password is' => 'รหัสผ่านใหม่ของคุณคือ',
-  'Zipcode' => 'รหัสไปรษณีย์'
+  'Zipcode' => 'รหัสไปรษณีย์',
 );
