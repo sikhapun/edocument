@@ -166,7 +166,7 @@ final class Language extends \Kotchasan\KBase
             $files = array();
             File::listFiles($language_folder, $files);
             foreach ($files as $file) {
-                if (preg_match('/(.*\/([a-z]{2,2}))\.(php|js)/', $file, $match)) {
+                if (preg_match('/(.*\/([a-z]{2,2}))\.(php|js)$/', $file, $match)) {
                     self::$installed_languages[$match[2]] = $match[2];
                 }
             }
@@ -395,7 +395,7 @@ final class Language extends \Kotchasan\KBase
                         self::$languages = (object) $language;
                         self::$language_name = $item;
                         // บันทึกภาษาที่กำลังใช้งานอยู่ลงใน cookie
-                        setcookie('my_lang', $item, time() + 2592000, '/', null, null, true);
+                        setcookie('my_lang', $item, time() + 2592000, '/', null, HOST, true);
                         break;
                     }
                 }

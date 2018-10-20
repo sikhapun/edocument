@@ -65,8 +65,8 @@ CREATE TABLE `{prefix}_edocument_download` (
 CREATE TABLE `{prefix}_user` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `salt` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL,
   `permission` text COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `{prefix}_user` (
   `ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_date` datetime NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `fb` tinyint(1) NOT NULL DEFAULT '0',
+  `social` tinyint(1) NOT NULL DEFAULT '0',
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `website` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),

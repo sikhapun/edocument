@@ -20,7 +20,7 @@ use Kotchasan\Language;
  *
  * @since 1.0
  */
-class Login extends \Kotchasan\Login implements \Kotchasan\LoginInterface
+class Login extends \Kotchasan\Login
 {
     /**
      * ฟังก์ชั่นตรวจสอบการ login และบันทึกการเข้าระบบ
@@ -157,12 +157,12 @@ class Login extends \Kotchasan\Login implements \Kotchasan\LoginInterface
             // ตาราง user
             $table = $model->getTableName('user');
             // ค้นหาอีเมล
-            $search = $model->db()->first($table, array(array($field, $username), array('fb', '0')));
+            $search = $model->db()->first($table, array(array($field, $username), array('social', 0)));
             if ($search === false) {
                 self::$login_message = Language::get('not a registered user');
             } else {
                 // ขอรหัสผ่านใหม่
-                $err = \Index\Forgot\Model::execute($search->id, \Kotchasan\Text::rndname(6), $search->$field);
+                $err = \Index\Forgot\Model::execute($search->id, $search->$field);
                 if ($err == '') {
                     // คืนค่า
                     self::$login_message = Language::get('Your message was sent successfully');
@@ -185,6 +185,6 @@ class Login extends \Kotchasan\Login implements \Kotchasan\LoginInterface
      */
     public static function notDemoMode($login)
     {
-        return $login && !empty($login['fb']) && self::$cfg->demo_mode ? null : $login;
+        return $login && !empty($login['social']) && self::$cfg->demo_mode ? null : $login;
     }
 }

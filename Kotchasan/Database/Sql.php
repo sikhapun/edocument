@@ -783,7 +783,10 @@ class Sql
             $ps = array();
             if (is_array($condition[0])) {
                 foreach ($condition as $n => $item) {
-                    if ($item instanceof QueryBuilder || $item instanceof self) {
+                    if ($item instanceof QueryBuilder) {
+                        $qs[] = '('.$item->text().')';
+                        $values = $item->getValues($values);
+                    } elseif ($item instanceof self) {
                         $qs[] = $item->text();
                         $values = $item->getValues($values);
                     } else {
@@ -792,14 +795,21 @@ class Sql
                 }
                 $sql = implode(' '.$operator.' ', $qs);
             } else {
-                if ($condition[0] instanceof QueryBuilder || $condition[0] instanceof self) {
+                if ($condition[0] instanceof QueryBuilder) {
+                    $key = '('.$condition[0]->text().')';
+                    $values = $condition[0]->getValues($values);
+                } elseif ($condition[0] instanceof self) {
                     $key = $condition[0]->text();
                     $values = $condition[0]->getValues($values);
                 } else {
                     $key = self::fieldName($condition[0]);
                 }
                 if (sizeof($condition) == 2) {
-                    if ($condition[1] instanceof QueryBuilder || $condition[1] instanceof self) {
+                    if ($condition[1] instanceof QueryBuilder) {
+                        $operator = '=';
+                        $value = '('.$condition[1]->text().')';
+                        $values = $condition[1]->getValues($values);
+                    } elseif ($condition[1] instanceof self) {
                         $operator = '=';
                         $value = $condition[1]->text();
                         $values = $condition[1]->getValues($values);
@@ -810,24 +820,33 @@ class Sql
                         }
                         $value = self::quoteValue($key, $condition[1], $values);
                     }
-                } elseif ($condition[2] instanceof QueryBuilder) {
-                    $operator = trim($condition[1]);
-                    $value = '('.$condition[2]->text().')';
-                    $values = $condition[2]->getValues($values);
-                } elseif ($condition[2] instanceof self) {
-                    $operator = trim($condition[1]);
-                    $value = $condition[2]->text();
-                    $values = $condition[2]->getValues($values);
-                } else {
-                    $operator = trim($condition[1]);
-                    if (is_array($condition[2]) && $operator == '=') {
-                        $operator = 'IN';
+                } elseif (isset($condition[2])) {
+                    if ($condition[2] instanceof QueryBuilder) {
+                        $operator = trim($condition[1]);
+                        $value = '('.$condition[2]->text().')';
+                        $values = $condition[2]->getValues($values);
+                    } elseif ($condition[2] instanceof self) {
+                        $operator = trim($condition[1]);
+                        $value = $condition[2]->text();
+                        $values = $condition[2]->getValues($values);
+                    } else {
+                        $operator = trim($condition[1]);
+                        if (is_array($condition[2]) && $operator == '=') {
+                            $operator = 'IN';
+                        }
+                        $value = self::quoteValue($key, $condition[2], $values);
                     }
-                    $value = self::quoteValue($key, $condition[2], $values);
                 }
-                $sql = $key.' '.$operator.' '.$value;
+                if (isset($value)) {
+                    $sql = $key.' '.$operator.' '.$value;
+                } else {
+                    $sql = $key;
+                }
             }
-        } elseif ($condition instanceof QueryBuilder || $condition instanceof self) {
+        } elseif ($condition instanceof QueryBuilder) {
+            $sql = '('.$condition->text().')';
+            $values = $condition->getValues($values);
+        } elseif ($condition instanceof self) {
             $sql = $condition->text();
             $values = $condition->getValues($values);
         } else {
