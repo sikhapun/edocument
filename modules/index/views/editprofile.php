@@ -143,20 +143,37 @@ class View extends \Gcms\View
         $groups->add('select', array(
             'id' => 'register_provinceID',
             'labelClass' => 'g-input icon-location',
-            'itemClass' => 'width50',
+            'itemClass' => 'width33',
             'label' => '{LNG_Province}',
-            'options' => \Kotchasan\Province::all(),
+            'options' => array($user['provinceID'] => ''),
             'value' => $user['provinceID'],
+        ));
+        // province
+        $groups->add('text', array(
+            'id' => 'register_province',
+            'labelClass' => 'g-input icon-location',
+            'itemClass' => 'width33',
+            'label' => '{LNG_Province}',
+            'value' => $user['province'],
         ));
         // zipcode
         $groups->add('text', array(
             'id' => 'register_zipcode',
             'labelClass' => 'g-input icon-location',
-            'itemClass' => 'width50',
+            'itemClass' => 'width33',
             'label' => '{LNG_Zipcode}',
             'pattern' => '[0-9]+',
             'maxlength' => 10,
             'value' => $user['zipcode'],
+        ));
+        // country
+        $groups->add('select', array(
+            'id' => 'register_country',
+            'labelClass' => 'g-input icon-world',
+            'itemClass' => 'width33',
+            'label' => '{LNG_Country}',
+            'options' => \Kotchasan\Country::all(),
+            'value' => $user['country'],
         ));
         if ($login_admin) {
             $fieldset = $form->add('fieldset', array(
@@ -193,6 +210,8 @@ class View extends \Gcms\View
             'id' => 'register_id',
             'value' => $user['id'],
         ));
+        // Javascript
+        $form->script('initEditProfile("register");');
 
         return $form->render();
     }
