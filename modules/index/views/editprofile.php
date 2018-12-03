@@ -13,6 +13,7 @@ namespace Index\Editprofile;
 use Gcms\Login;
 use Kotchasan\Html;
 use Kotchasan\Language;
+use Kotchasan\Province;
 
 /**
  * module=editprofile.
@@ -211,7 +212,7 @@ class View extends \Gcms\View
             'value' => $user['id'],
         ));
         // Javascript
-        $form->script('initEditProfile("register");');
+        $form->script('initEditProfile("register", '.json_encode(Province::countries()).');');
 
         return $form->render();
     }

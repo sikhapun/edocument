@@ -557,24 +557,24 @@ function initFirstRowNumberOnly(tr) {
     }
   });
 }
-function initEditProfile(prefix) {
+function initEditProfile(prefix, countries) {
   prefix = prefix ? prefix + "_" : "";
   var countryChanged = function() {
     var province = $E(prefix + "province"),
       provinceID = $E(prefix + "provinceID");
-    if (this.value == "TH" || this.value == "LA") {
-      if (province) {
-        $G(province.parentNode.parentNode).addClass("hidden");
-      }
-      if (provinceID) {
-        $G(provinceID.parentNode.parentNode).removeClass("hidden");
-      }
-    } else {
+    if (countries.indexOf(this.value) === -1) {
       if (provinceID) {
         $G(provinceID.parentNode.parentNode).addClass("hidden");
       }
       if (province) {
         $G(province.parentNode.parentNode).removeClass("hidden");
+      }
+    } else {
+      if (province) {
+        $G(province.parentNode.parentNode).addClass("hidden");
+      }
+      if (provinceID) {
+        $G(provinceID.parentNode.parentNode).removeClass("hidden");
       }
     }
   };
