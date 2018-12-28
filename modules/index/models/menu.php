@@ -10,6 +10,8 @@
 
 namespace Index\Menu;
 
+use Gcms\Login;
+
 /**
  * รายการเมนู.
  *
@@ -28,6 +30,24 @@ class Model
      */
     public static function getMenus($login)
     {
+        // เมนูตั้งค่า
+        $settings = array();
+        if (Login::checkPermission($login, 'can_config')) {
+            // สามารถตั้งค่าระบบได้
+            $settings[] = array(
+                'text' => '{LNG_Site settings}',
+                'url' => 'index.php?module=system',
+            );
+            $settings[] = array(
+                'text' => '{LNG_Email settings}',
+                'url' => 'index.php?module=mailserver',
+            );
+            $settings[] = array(
+                'text' => '{LNG_Member status}',
+                'url' => 'index.php?module=memberstatus',
+            );
+        }
+        // เมนูหลัก
         $menus = array(
             'home' => array(
                 'text' => '{LNG_Home}',
@@ -50,22 +70,13 @@ class Model
                     ),
                 ),
             ),
+            'report' => array(
+                'text' => '{LNG_Report}',
+                'submenus' => array(),
+            ),
             'settings' => array(
                 'text' => '{LNG_Settings}',
-                'submenus' => array(
-                    array(
-                        'text' => '{LNG_Site settings}',
-                        'url' => 'index.php?module=system',
-                    ),
-                    array(
-                        'text' => '{LNG_Email settings}',
-                        'url' => 'index.php?module=mailserver',
-                    ),
-                    array(
-                        'text' => '{LNG_Member status}',
-                        'url' => 'index.php?module=memberstatus',
-                    ),
-                ),
+                'submenus' => $settings,
             ),
             'signout' => array(
                 'text' => '{LNG_Sign out}',

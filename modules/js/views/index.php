@@ -34,12 +34,13 @@ class View extends \Kotchasan\KBase
         $js[] = file_get_contents(ROOT_PATH.'js/ddmenu.js');
         $js[] = file_get_contents(ROOT_PATH.'js/ddpanel.js');
         $js[] = file_get_contents(ROOT_PATH.'js/editinplace.js');
+        $js[] = file_get_contents(ROOT_PATH.'js/calendar.js');
         $js[] = file_get_contents(ROOT_PATH.'js/graphs.js');
         $js[] = file_get_contents(ROOT_PATH.'js/loader.js');
         $js[] = file_get_contents(ROOT_PATH.'js/sorttable.js');
         $js[] = file_get_contents(ROOT_PATH.'js/table.js');
-        $js[] = file_get_contents(ROOT_PATH.'js/multiselect.js');
         $js[] = file_get_contents(ROOT_PATH.'js/tooltip.js');
+        $js[] = file_get_contents(ROOT_PATH.'js/multiselect.js');
         $js[] = file_get_contents(ROOT_PATH.'js/common.js');
         $js[] = file_get_contents(ROOT_PATH.'js/facebook.js');
         $js[] = file_get_contents(ROOT_PATH.'js/google.js');

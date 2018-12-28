@@ -81,7 +81,6 @@ return array(
   'E-Document list' => 'รายการเอกสาร',
   'E-Documents' => 'เอกสาร',
   'Edit' => 'แก้ไข',
-  'Edit profile' => 'แก้ไขข้อมูลส่วนตัวสมาชิก',
   'Editing your account' => 'แก้ไขข้อมูลส่วนตัวสมาชิก',
   'Email' => 'อีเมล',
   'Email address used for login or request a new password' => 'ที่อยู่อีเมล ใช้สำหรับการเข้าระบบหรือการขอรหัสผ่านใหม่',
