@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/views/report.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Report;
@@ -44,7 +44,7 @@ class View extends \Gcms\View
             /* คอลัมน์ที่ไม่ต้องแสดงผล */
             'hideColumns' => array('id'),
             /* รายการต่อหน้า */
-            'perPage' => $request->cookie('edocument_perPage', 30)->toInt(),
+            'perPage' => $request->cookie('edocumentReport_perPage', 30)->toInt(),
             /* เรียงลำดับ */
             'sort' => 'last_update DESC',
             /* ฟังก์ชั่นจัดรูปแบบการแสดงผลแถวของตาราง */
@@ -55,7 +55,7 @@ class View extends \Gcms\View
                     'text' => '{LNG_Recipient}',
                 ),
                 'name' => array(
-                    'text' => '{LNG_Name} {LNG_Surname}',
+                    'text' => '{LNG_Name}',
                 ),
                 'last_update' => array(
                     'text' => '{LNG_date}',
@@ -77,7 +77,7 @@ class View extends \Gcms\View
             ),
         ));
         // save cookie
-        setcookie('edocument_perPage', $table->perPage, time() + 2592000, '/', HOST, HTTPS, true);
+        setcookie('edocumentReport_perPage', $table->perPage, time() + 2592000, '/', HOST, HTTPS, true);
 
         return $table->render();
     }

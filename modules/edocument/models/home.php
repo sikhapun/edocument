@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/models/home.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Home;
@@ -28,8 +28,7 @@ class Model extends \Kotchasan\Model
      */
     public static function getNew($login)
     {
-        $model = new static();
-        $search = $model->db()->createQuery()
+        $search = static::createQuery()
             ->from('edocument A')
             ->where(array(
                 array('A.reciever', 'LIKE', '%,'.$login['status'].',%'),

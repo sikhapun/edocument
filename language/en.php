@@ -64,6 +64,7 @@ return array(
     11 => 'Nov',
     12 => 'Dec'
   ),
+  'Name' => 'Name Surname',
   'PERMISSIONS' => array(
     'can_config' => 'Can configure the system'
   ),

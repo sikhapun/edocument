@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/controllers/settings.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Settings;
@@ -55,10 +55,12 @@ class Controller extends \Gcms\Controller
             ));
             // แสดงฟอร์ม
             $section->appendChild(createClass('Edocument\Settings\View')->render());
+            // คืนค่า HTML
 
             return $section->render();
         }
         // 404
+
         return \Index\Error\Controller::execute($this);
     }
 }

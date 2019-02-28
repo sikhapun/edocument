@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/controllers/received.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Received;
@@ -36,7 +36,7 @@ class Controller extends \Gcms\Controller
         // ข้อความ title bar
         $this->title = Language::trans('{LNG_List of} {LNG_received document}');
         // เลือกเมนู
-        $this->menu = 'module';
+        $this->menu = 'edocument';
         // Login
         if ($login = Login::isMember()) {
             // แสดงผล
@@ -56,10 +56,12 @@ class Controller extends \Gcms\Controller
             ));
             // แสดงหนังสือรับ
             $section->appendChild(createClass('Edocument\Received\View')->render($request, $login));
+            // คืนค่า HTML
 
             return $section->render();
         }
         // 404
+
         return \Index\Error\Controller::execute($this);
     }
 }

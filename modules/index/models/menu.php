@@ -46,6 +46,10 @@ class Model
                 'text' => '{LNG_Member status}',
                 'url' => 'index.php?module=memberstatus',
             );
+            $settings[] = array(
+                'text' => '{LNG_Language}',
+                'url' => 'index.php?module=language',
+            );
         }
         // เมนูหลัก
         $menus = array(

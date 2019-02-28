@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/models/report.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Report;
@@ -28,10 +28,7 @@ class Model extends \Kotchasan\Model
      */
     public static function get($id)
     {
-        // Model
-        $model = new static();
-
-        return $model->db()->createQuery()
+        return static::createQuery()
             ->from('edocument')
             ->where(array('id', $id))
             ->first();
@@ -46,10 +43,7 @@ class Model extends \Kotchasan\Model
      */
     public static function toDataTable($id)
     {
-        // Model
-        $model = new static();
-
-        return $model->db()->createQuery()
+        return static::createQuery()
             ->select('D.id', 'U.status', 'U.name', 'D.last_update', 'D.downloads')
             ->from('edocument_download D')
             ->join('user U', 'LEFT', array('U.id', 'D.member_id'))

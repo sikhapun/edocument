@@ -23,35 +23,30 @@ class Request extends AbstractRequest implements \Psr\Http\Message\RequestInterf
      * @var array
      */
     private $attributes = array();
-
     /**
      * $_COOKIE.
      *
      * @var array
      */
     private $cookieParams;
-
     /**
      * $_POST.
      *
      * @var array
      */
     private $parsedBody;
-
     /**
      * $_GET.
      *
      * @var array
      */
     private $queryParams;
-
     /**
      * $_SERVER.
      *
      * @var array
      */
     private $serverParams;
-
     /**
      * @var Kotchasan\Files
      */
@@ -121,7 +116,7 @@ class Request extends AbstractRequest implements \Psr\Http\Message\RequestInterf
                     } elseif (substr($item[0], -1) == '*') {
                         $q = 0.02;
                     } else {
-                        $q = 1000 - sizeof($matches);
+                        $q = 1000 - count($matches);
                     }
                 }
                 $matches[(string) $q] = $item[0];
@@ -248,7 +243,7 @@ class Request extends AbstractRequest implements \Psr\Http\Message\RequestInterf
                 foreach ($_FILES as $name => $file) {
                     if (is_array($file['name'])) {
                         foreach ($file['name'] as $key => $value) {
-                            $this->uploadedFiles->add($key, $file['tmp_name'][$key], $value, $file['type'][$key], $file['size'][$key], $file['error'][$key]);
+                            $this->uploadedFiles->add($name.'['.$key.']', $file['tmp_name'][$key], $value, $file['type'][$key], $file['size'][$key], $file['error'][$key]);
                         }
                     } else {
                         $this->uploadedFiles->add($name, $file['tmp_name'], $file['name'], $file['type'], $file['size'], $file['error']);

@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/views/view.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\View;
@@ -35,7 +35,7 @@ class View extends \Gcms\View
         $content = array();
         $content[] = '<article class=edocument_view>';
         $content[] = '<header><h3 class=icon-file>{LNG_Details of} {LNG_Document}</h3></header>';
-        $content[] = '<div class=table>';
+        $content[] = '<div class="table fullwidth">';
         $content[] = '<p class=tr><span class="td icon-number">{LNG_Document No.}</span><span class=td>:</span><span class=td>'.$index->document_no.'</span></p>';
         $content[] = '<p class=tr><span class="td icon-file">{LNG_Document title}</span><span class=td>:</span><span class=td>'.$index->topic.'</span></p>';
         $content[] = '<p class=tr><span class="td icon-customer">{LNG_Sender}</span><span class=td>:</span><span class=td>'.\Edocument\Sender\Model::init()->get($index->sender_id).'</span></p>';

@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/models/settings.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Settings;
@@ -45,10 +45,10 @@ class Model extends \Kotchasan\KBase
                 // โหลด config
                 $config = Config::load(ROOT_PATH.'settings/config.php');
                 $config->edocument_format_no = $request->post('edocument_format_no')->topic();
-                $config->edocument_send_mail = $request->post('edocument_send_mail')->toBoolean();
                 $config->edocument_file_typies = array_keys($typies);
                 $config->edocument_upload_size = $request->post('edocument_upload_size')->toInt();
                 $config->edocument_download_action = $request->post('edocument_download_action')->toInt();
+                $config->edocument_send_mail = $request->post('edocument_send_mail')->toBoolean();
                 if (empty($config->edocument_file_typies)) {
                     // คืนค่า input ที่ error
                     $ret['ret_edocument_file_typies'] = 'this';

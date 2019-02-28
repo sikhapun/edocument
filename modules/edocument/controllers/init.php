@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/controllers/init.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Init;
@@ -45,14 +45,16 @@ class Controller extends \Kotchasan\KBase
                 'url' => 'index.php?module=edocument-sent',
             );
         }
-        $menu->add('module', '{LNG_E-Document}', null, $submenus);
-        $submenus = array(
-            array(
-                'text' => '{LNG_Settings}',
-                'url' => 'index.php?module=edocument-settings',
-            ),
-        );
-        $menu->add('settings', '{LNG_E-Document}', null, $submenus);
+        $menu->addTopLvlMenu('edocument', '{LNG_E-Document}', null, $submenus, 'module');
+        // เมนูตั้งค่า
+        if (Login::checkPermission(Login::isMember(), 'can_config')) {
+            $menu->add('settings', '{LNG_E-Document}', null, array(
+                array(
+                    'text' => '{LNG_Settings}',
+                    'url' => 'index.php?module=edocument-settings',
+                ),
+            ));
+        }
     }
 
     /**

@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/controllers/write.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Write;
@@ -41,7 +41,7 @@ class Controller extends \Gcms\Controller
         $title = '{LNG_'.(empty($index->id) ? 'Send Document' : 'Edit').'}';
         $this->title = Language::trans($title.' {LNG_E-Document}');
         // เลือกเมนู
-        $this->menu = 'module';
+        $this->menu = 'edocument';
         // สามารถจัดการรายชื่อบุคลากรได้
         if ($index && Login::checkPermission($login, 'can_upload_edocument')) {
             // แสดงผล
@@ -61,10 +61,12 @@ class Controller extends \Gcms\Controller
             ));
             // แสดงฟอร์ม
             $section->appendChild(createClass('Edocument\Write\View')->render($index, $login));
+            // คืนค่า HTML
 
             return $section->render();
         }
         // 404
+
         return \Index\Error\Controller::execute($this);
     }
 }

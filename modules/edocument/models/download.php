@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/models/download.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Download;
@@ -23,6 +23,9 @@ use Kotchasan\Language;
  */
 class Model extends \Kotchasan\Model
 {
+    /**
+     * @param Request $request
+     */
     public function index(Request $request)
     {
         $ret = array();

@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/models/write.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Write;
@@ -110,10 +110,10 @@ class Model extends \Kotchasan\Model
                             $ret['ret_detail'] = 'Please fill in';
                         } else {
                             // อัปโหลดไฟล์
+                            $dir = ROOT_PATH.DATA_FOLDER.'edocument/';
                             foreach ($request->getUploadedFiles() as $item => $file) {
                                 /* @var $file \Kotchasan\Http\UploadedFile */
                                 if ($file->hasUploadFile()) {
-                                    $dir = ROOT_PATH.DATA_FOLDER.'edocument/';
                                     if (!File::makeDirectory($dir)) {
                                         // ไดเรคทอรี่ไม่สามารถสร้างได้
                                         $ret['ret_'.$item] = sprintf(Language::get('Directory %s cannot be created or is read-only.'), DATA_FOLDER.'edocument/');

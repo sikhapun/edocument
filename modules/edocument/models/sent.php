@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/models/sent.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Sent;
@@ -27,7 +27,7 @@ class Model extends \Kotchasan\Model
     /**
      * Query ข้อมูลสำหรับส่งให้กับ DataTable.
      *
-     * @param int $id 0 คืนค่าทุกคน, > 0 คืนค่ารายการที่ $id
+     * @param int $id คืนค่าทุกคน, > คืนค่ารายการที่ $id
      *
      * @return /static
      */
@@ -65,12 +65,10 @@ class Model extends \Kotchasan\Model
                 $action = $request->post('action')->toString();
                 // ตรวจสอบค่าที่ส่งมา
                 if (preg_match('/^[0-9,]+$/', $id)) {
-                    // Model
-                    $model = new \Kotchasan\Model();
                     if ($action === 'delete' && Login::checkPermission($login, 'can_upload_edocument')) {
                         // ลบ
                         $id = explode(',', $id);
-                        $query = $model->db()->createQuery()
+                        $query = $this->db()->createQuery()
                             ->select('file')
                             ->from('edocument')
                             ->where(array(
@@ -83,24 +81,24 @@ class Model extends \Kotchasan\Model
                             @unlink(ROOT_PATH.DATA_FOLDER.'edocument/'.$item['file']);
                         }
                         // ลบข้อมูล
-                        $model->db()->createQuery()
+                        $this->db()->createQuery()
                             ->delete('edocument', array('id', $id))
                             ->execute();
-                        $model->db()->createQuery()
+                        $this->db()->createQuery()
                             ->delete('edocument_download', array('document_id', $id))
                             ->execute();
                         // reload
                         $ret['location'] = 'reload';
                     } elseif ($action == 'download') {
                         // อ่านรายการที่เลือก
-                        $result = $model->db()->createQuery()
+                        $result = $this->db()->createQuery()
                             ->from('edocument E')
                             ->where(array('E.id', (int) $id))
                             ->first('E.topic', 'E.file', 'E.ext');
                         if ($result) {
                             $file = ROOT_PATH.DATA_FOLDER.'edocument/'.$result->file;
                             if (is_file($file)) {
-                                // id สำหรบไฟล์ดาวน์โหลด
+                                // id สำหรับไฟล์ดาวน์โหลด
                                 $id = \Kotchasan\Text::rndname(32);
                                 // บันทึกรายละเอียดการดาวน์โหลดลง SESSION
                                 $_SESSION[$id] = array(

@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/views/write.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Write;
@@ -73,7 +73,7 @@ class View extends \Gcms\View
             'itemClass' => 'item',
             'label' => '{LNG_Document title}',
             'comment' => '{LNG_The name of the document when downloaded. If empty, use the name of the uploaded file. (Thai language available)}',
-            'maxlength' => 50,
+            'maxlength' => 255,
             'value' => $index->topic,
         ));
         // file

@@ -2,10 +2,10 @@
 /**
  * @filesource modules/edocument/views/received.php
  *
- * @see http://www.kotchasan.com/
- *
  * @copyright 2016 Goragod.com
  * @license http://www.kotchasan.com/license/
+ *
+ * @see http://www.kotchasan.com/
  */
 
 namespace Edocument\Received;
@@ -24,6 +24,9 @@ use Kotchasan\Text;
  */
 class View extends \Gcms\View
 {
+    /**
+     * @var mixed
+     */
     private $sender;
 
     /**
@@ -47,7 +50,7 @@ class View extends \Gcms\View
             /* Model */
             'model' => \Edocument\Received\Model::toDataTable($login),
             /* รายการต่อหน้า */
-            'perPage' => $request->cookie('edocument_perPage', 30)->toInt(),
+            'perPage' => $request->cookie('received_perPage', 30)->toInt(),
             /* เรียงลำดับ */
             'sort' => 'new,last_update DESC',
             /* ฟังก์ชั่นจัดรูปแบบการแสดงผลแถวของตาราง */
@@ -129,7 +132,7 @@ class View extends \Gcms\View
             ),
         ));
         // save cookie
-        setcookie('edocument_perPage', $table->perPage, time() + 2592000, '/', HOST, HTTPS, true);
+        setcookie('received_perPage', $table->perPage, time() + 2592000, '/', HOST, HTTPS, true);
 
         return $table->render();
     }
