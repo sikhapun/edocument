@@ -1,5 +1,4 @@
 <?php
-
 /* language/th.php */
 return array(
   'Add' => 'เพิ่ม',
@@ -15,7 +14,7 @@ return array(
   'Background image' => 'รูปภาพพื้นหลัง',
   'BOOLEANS' => array(
     0 => 'ปิดใช้งาน',
-    1 => 'เปิดใช้งาน',
+    1 => 'เปิดใช้งาน'
   ),
   'Browse file' => 'เลือกไฟล์',
   'Browse image uploaded, type :type size :width*:height pixel' => 'เลือกรูปภาพอัปโหลด ชนิด :type ขนาด :width*:height พิกเซล',
@@ -38,7 +37,7 @@ return array(
   'Currency unit' => 'สกุลเงิน',
   'CURRENCY_UNITS' => array(
     'THB' => 'บาท',
-    'USD' => 'ดอลล่าร์',
+    'USD' => 'ดอลล่าร์'
   ),
   'Customer' => 'ลูกค้า',
   'Customer Name' => 'ชื่อลูกค้า',
@@ -51,7 +50,7 @@ return array(
     3 => 'พุธ',
     4 => 'พฤหัสบดี',
     5 => 'ศุกร์',
-    6 => 'เสาร์',
+    6 => 'เสาร์'
   ),
   'DATE_SHORT' => array(
     0 => 'อา.',
@@ -60,7 +59,7 @@ return array(
     3 => 'พ.',
     4 => 'พฤ.',
     5 => 'ศ.',
-    6 => 'ส.',
+    6 => 'ส.'
   ),
   'Delete' => 'ลบ',
   'Description' => 'คำอธิบาย',
@@ -75,7 +74,7 @@ return array(
   'Download history' => 'ประวัติการดาวน์โหลด',
   'DOWNLOAD_ACTIONS' => array(
     0 => 'ดาวน์โหลดไฟล์',
-    1 => 'เปิดไฟล์ (ที่รู้จัก)',
+    1 => 'เปิดไฟล์ (ที่รู้จัก)'
   ),
   'drag to order' => 'ลากเพื่อจัดลำดับ',
   'E-Document' => 'งานสารบรรณ',
@@ -135,7 +134,7 @@ return array(
   'Mail server settings' => 'ค่ากำหนดของเมล์เซิร์ฟเวอร์',
   'MAIL_PROGRAMS' => array(
     0 => 'ส่งจดหมายด้วย PHP',
-    1 => 'ส่งจดหมายด้วย PHPMailer (แนะนำ)',
+    1 => 'ส่งจดหมายด้วย PHPMailer (แนะนำ)'
   ),
   'Manage languages' => 'จัดการภาษา',
   'Member list' => 'รายชื่อสมาชิก',
@@ -154,7 +153,7 @@ return array(
     9 => 'กันยายน',
     10 => 'ตุลาคม',
     11 => 'พฤศจิกายน',
-    12 => 'ธันวาคม',
+    12 => 'ธันวาคม'
   ),
   'MONTH_SHORT' => array(
     1 => 'ม.ค.',
@@ -168,7 +167,7 @@ return array(
     9 => 'ก.ย.',
     10 => 'ต.ค.',
     11 => 'พ.ย.',
-    12 => 'ธ.ค.',
+    12 => 'ธ.ค.'
   ),
   'Name' => 'ชื่อ นามสกุล',
   'New' => 'ใหม่',
@@ -185,7 +184,7 @@ return array(
   'Passwords must be at least four characters' => 'รหัสผ่านต้องไม่น้อยกว่า 4 ตัวอักษร',
   'Permission' => 'สิทธิ์การใช้งาน',
   'PERMISSIONS' => array(
-    'can_config' => 'สามารถตั้งค่าระบบได้',
+    'can_config' => 'สามารถตั้งค่าระบบได้'
   ),
   'Phone' => 'โทรศัพท์',
   'Please fill in' => 'กรุณากรอก',
@@ -219,7 +218,7 @@ return array(
   'Repair status' => 'สถานะการซ่อม',
   'Repair system' => 'ระบบแจ้งซ่อม',
   'REPAIR_CATEGORIES' => array(
-    'repairstatus' => 'สถานะการซ่อม',
+    'repairstatus' => 'สถานะการซ่อม'
   ),
   'Repairman' => 'ช่างซ่อม',
   'Repassword' => 'ยืนยันรหัสผ่าน',
@@ -244,7 +243,7 @@ return array(
   'Sex' => 'เพศ',
   'SEXES' => array(
     'f' => 'หญิง',
-    'm' => 'ชาย',
+    'm' => 'ชาย'
   ),
   'Short description about your website' => 'ข้อความสั้นๆอธิบายว่าเป็นเว็บไซต์เกี่ยวกับอะไร',
   'Show' => 'แสดง',
@@ -257,7 +256,7 @@ return array(
   'skip to content' => 'ข้ามไปยังเนื้อหา',
   'SMTPSECURIES' => array(
     '' => 'การเชื่อมต่อแบบปกติ',
-    'ssl' => 'การเชื่อมต่อที่ปลอดภัย (SSL)',
+    'ssl' => 'การเชื่อมต่อที่ปลอดภัย (SSL)'
   ),
   'Sorry' => 'ขออภัย',
   'Sorry, Item not found It&#39;s may be deleted' => 'ขออภัย ไม่พบรายการที่เลือก รายการนี้อาจถูกลบไปแล้ว',
@@ -309,5 +308,5 @@ return array(
   'You want to' => 'คุณต้องการ',
   'Your message was sent successfully' => 'ส่งข้อความไปยังผู้รับเรียบร้อยแล้ว',
   'Your new password is' => 'รหัสผ่านใหม่ของคุณคือ',
-  'Zipcode' => 'รหัสไปรษณีย์',
+  'Zipcode' => 'รหัสไปรษณีย์'
 );
