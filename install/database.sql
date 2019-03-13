@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2019 at 05:24 AM
+-- Generation Time: Mar 13, 2019 at 09:36 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.0.32
 
@@ -11,26 +11,27 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `{prefix}_language`
+--
 
 CREATE TABLE `{prefix}_language` (
   `id` int(11) NOT NULL,
   `key` text COLLATE utf8_unicode_ci NOT NULL,
-  `la` text COLLATE utf8_unicode_ci,
-  `th` text COLLATE utf8_unicode_ci,
-  `en` text COLLATE utf8_unicode_ci,
-  `owner` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
-  `js` tinyint(1) NOT NULL
+  `owner` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `js` tinyint(1) NOT NULL,
+  `th` text COLLATE utf8_unicode_ci,
+  `en` text COLLATE utf8_unicode_ci
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
 --
--- โครงสร้างตาราง `{prefix}_edocument`
+-- Table structure for table `{prefix}_edocument`
 --
 
 CREATE TABLE `{prefix}_edocument` (
@@ -59,7 +60,7 @@ INSERT INTO `{prefix}_edocument` (`id`, `sender_id`, `reciever`, `last_update`, 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `{prefix}_edocument_download`
+-- Table structure for table `{prefix}_edocument_download`
 --
 
 CREATE TABLE `{prefix}_edocument_download` (
@@ -74,21 +75,20 @@ CREATE TABLE `{prefix}_edocument_download` (
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `{prefix}_user`
+-- Table structure for table `{prefix}_user`
 --
 
 CREATE TABLE `{prefix}_user` (
   `id` int(11) UNSIGNED NOT NULL,
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `salt` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `salt` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `permission` text COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `sex` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_card` varchar(13) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `expire_date` date DEFAULT NULL,
   `address` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `provinceID` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -100,19 +100,17 @@ CREATE TABLE `{prefix}_user` (
   `session_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
-  `social` tinyint(1) NOT NULL DEFAULT '0',
-  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `website` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `social` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- dump ตาราง `{prefix}_user`
+-- Dumping data for table `{prefix}_user`
 --
 
-INSERT INTO `{prefix}_user` (`id`, `username`, `salt`, `password`, `status`, `permission`, `name`, `sex`, `id_card`, `address`, `phone`, `provinceID`, `zipcode`, `visited`, `lastvisited`, `session_id`, `ip`, `create_date`) VALUES
-(1, 'admin@localhost', 'admin@localhost', 'b620e8b83d7fcf7278148d21b088511917762014', 1, ',can_config,can_handle_all_edocument,can_upload_edocument,', 'แอดมิน', 'm', '', '1 หมู่ 1 ตำบล ลาดหญ้า อำเภอ เมือง', '08080808', '102', '71190', 138, 1500887470, '', '', '0000-00-00 00:00:00'),
-(2, 'demo@localhost', 'demo@localhost', 'db75cdf3d5e77181ec3ed6072b56a8870eb6822d', 2, ',can_upload_edocument,', 'ช่างซ่อม 1', 'f', '', '', '0123456788', '101', '', 83, 1500887481, '', '', '2017-07-02 08:10:30');
+INSERT INTO `{prefix}_user` (`id`, `username`, `salt`, `password`, `token`, `status`, `permission`, `name`, `sex`, `id_card`, `address`, `phone`, `provinceID`, `zipcode`, `visited`, `lastvisited`, `session_id`, `ip`, `create_date`, `active`, `social`, `website`, `country`, `province`) VALUES
+(1, 'admin@localhost', '5c218d7d9ea4b', '6a397c750a3046e8b9873e9b7dd517bd070ba79c', NULL, 1, ',can_config,can_manage_room,can_approve_room,', 'แอดมิน', 'm', '', '1 หมู่ 1 ตำบล ลาดหญ้า อำเภอ เมือง', '08080808', '102', '71190', 0, 0, '', '::1', NOW(), 1, 0, NULL, 'TH', ''),
+(2, 'demo@localhost', '5c13b4c610781', 'd61303ebed15f6448dd3ebadd7e416b5350b4d1d', NULL, 0, '', 'ตัวอย่าง', 'f', '', '', '0123456788', '102', '', 0, 0, '', '::1', NOW(), 1, 0, NULL, 'LA', '');
 
 --
 -- Indexes for dumped tables
@@ -125,16 +123,17 @@ ALTER TABLE `{prefix}_edocument`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `{prefix}_language`
+--
+ALTER TABLE `{prefix}_language`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `{prefix}_edocument_download`
 --
 ALTER TABLE `{prefix}_edocument_download`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `{prefix}_language`
---
-ALTER TABLE `{prefix}_language`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `{prefix}_user`
@@ -167,6 +166,3 @@ ALTER TABLE `{prefix}_language`
 --
 ALTER TABLE `{prefix}_user`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
