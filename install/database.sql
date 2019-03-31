@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2019 at 09:36 AM
--- Server version: 10.1.37-MariaDB
+-- Generation Time: Mar 31, 2019 at 09:45 AM
+-- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.0.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -14,6 +14,7 @@ SET time_zone = "+00:00";
 
 
 -- --------------------------------------------------------
+
 --
 -- Table structure for table `{prefix}_language`
 --
@@ -95,7 +96,7 @@ CREATE TABLE `{prefix}_user` (
   `province` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `zipcode` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `country` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `visited` int(11) UNSIGNED DEFAULT '0',
+  `visited` int(11) UNSIGNED DEFAULT 0,
   `lastvisited` int(11) DEFAULT 0,
   `session_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -133,7 +134,6 @@ ALTER TABLE `{prefix}_language`
 --
 ALTER TABLE `{prefix}_edocument_download`
   ADD PRIMARY KEY (`id`);
-
 
 --
 -- Indexes for table `{prefix}_user`
