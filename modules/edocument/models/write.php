@@ -165,6 +165,7 @@ class Model extends \Kotchasan\Model
                             $reciever = $save['reciever'];
                             $save['reciever'] = ','.implode(',', $reciever).',';
                             $save['ip'] = $request->getClientIp();
+                            $save['topic'] = str_replace(',', '_', $save['topic']);
                             if ($index->id == 0) {
                                 // ใหม่
                                 $save['sender_id'] = $login['id'];
