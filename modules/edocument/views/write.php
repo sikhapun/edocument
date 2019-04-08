@@ -105,7 +105,7 @@ class View extends \Gcms\View
         ));
         $fieldset->add('checkbox', array(
             'id' => 'send_mail',
-            'label' => '{LNG_Send an email to members}',
+            'label' => '&nbsp;{LNG_Send an email to members}',
             'checked' => self::$cfg->edocument_send_mail && $index->id == 0,
             'value' => 1,
         ));
