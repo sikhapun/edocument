@@ -79,7 +79,7 @@ CREATE TABLE `{prefix}_edocument_download` (
 --
 
 CREATE TABLE `{prefix}_user` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `salt` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -164,4 +164,4 @@ ALTER TABLE `{prefix}_language`
 -- AUTO_INCREMENT for table `{prefix}_user`
 --
 ALTER TABLE `{prefix}_user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
