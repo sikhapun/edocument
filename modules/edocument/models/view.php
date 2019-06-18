@@ -43,6 +43,6 @@ class Model extends \Kotchasan\Model
         return $model->db()->createQuery()
             ->from('edocument A')
             ->where(array('A.id', $id))
-            ->first('A.id', 'A.document_no', array($sql2, 'new'), 'A.topic', 'A.ext', 'A.sender_id', 'A.size', 'A.last_update', 'A.detail');
+            ->first('A.id', 'A.document_no', 'A.urgency', array($sql2, 'new'), 'A.topic', 'A.ext', 'A.sender_id', 'A.size', 'A.last_update', 'A.detail');
     }
 }

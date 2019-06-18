@@ -3,7 +3,7 @@
 /* config.php */
 
 return array(
-    'version' => '2.0.3',
+    'version' => '2.0.4',
     'edocument_format_no' => 'ที่ ศธ1234/%04d',
     'edocument_send_mail' => 1,
     'edocument_file_typies' => array(

@@ -47,6 +47,7 @@ class Model extends \Kotchasan\Model
                 'document_no' => sprintf(self::$cfg->edocument_format_no, $id),
                 'sender_id' => (int) $login['id'],
                 'reciever' => array_keys(self::$cfg->member_status),
+                'urgency' => 2,
                 'topic' => '',
                 'detail' => '',
             );
@@ -79,6 +80,7 @@ class Model extends \Kotchasan\Model
                 $save = array(
                     'document_no' => $request->post('document_no')->topic(),
                     'reciever' => $request->post('reciever', array())->toInt(),
+                    'urgency' => $request->post('urgency')->toInt(),
                     'topic' => $request->post('topic')->topic(),
                     'detail' => $request->post('detail')->textarea(),
                 );

@@ -3,15 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2019 at 09:45 AM
+-- Generation Time: Jun 16, 2019 at 01:54 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.0.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-
 
 -- --------------------------------------------------------
 --
@@ -38,10 +35,11 @@ CREATE TABLE `{prefix}_edocument` (
   `id` int(11) UNSIGNED NOT NULL,
   `sender_id` int(11) UNSIGNED NOT NULL,
   `reciever` text COLLATE utf8_unicode_ci NOT NULL,
+  `urgency` tinyint(1) NOT NULL DEFAULT 2,
   `last_update` int(11) UNSIGNED NOT NULL,
   `document_no` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `detail` text COLLATE utf8_unicode_ci NOT NULL,
-  `topic` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `topic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ext` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `size` double UNSIGNED NOT NULL,
   `file` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
@@ -95,13 +93,13 @@ CREATE TABLE `{prefix}_user` (
   `province` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `zipcode` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `country` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `visited` int(11) UNSIGNED DEFAULT 0,
+  `visited` int(11) DEFAULT 0,
   `lastvisited` int(11) DEFAULT 0,
   `session_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT 1,
-  `social` tinyint(1) NOT NULL DEFAULT 0
+  `active` tinyint(1) DEFAULT 1,
+  `social` tinyint(1) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -113,25 +111,9 @@ INSERT INTO `{prefix}_user` (`id`, `username`, `salt`, `password`, `token`, `sta
 (2, 'demo@localhost', '5c13b4c610781', 'd61303ebed15f6448dd3ebadd7e416b5350b4d1d', NULL, 0, '', 'ตัวอย่าง', 'f', '', '', '0123456788', '102', '', 0, 0, '', '::1', NOW(), 1, 0);
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `{prefix}_edocument`
---
-ALTER TABLE `{prefix}_edocument`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `{prefix}_language`
 --
 ALTER TABLE `{prefix}_language`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `{prefix}_edocument_download`
---
-ALTER TABLE `{prefix}_edocument_download`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -142,26 +124,36 @@ ALTER TABLE `{prefix}_user`
   ADD KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `{prefix}_edocument`
+-- Indexes for table `{prefix}_edocument`
 --
 ALTER TABLE `{prefix}_edocument`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  ADD PRIMARY KEY (`id`);
 --
--- AUTO_INCREMENT for table `{prefix}_edocument_download`
+-- Indexes for table `{prefix}_edocument_download`
 --
 ALTER TABLE `{prefix}_edocument_download`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  ADD PRIMARY KEY (`id`);
+
 --
 -- AUTO_INCREMENT for table `{prefix}_language`
 --
 ALTER TABLE `{prefix}_language`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `{prefix}_user`
 --
 ALTER TABLE `{prefix}_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `{prefix}_edocument`
+--
+ALTER TABLE `{prefix}_edocument`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `{prefix}_edocument_download`
+--
+ALTER TABLE `{prefix}_edocument_download`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

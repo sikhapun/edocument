@@ -39,7 +39,7 @@ class Model extends \Kotchasan\Model
             ->from('edocument_download E')
             ->where(array('E.document_id', 'A.id'));
         $query = $model->db()->createQuery()
-            ->select('A.id', 'A.document_no', 'A.ext', 'A.topic', 'A.sender_id', 'A.size', 'A.last_update', array($sql2, 'downloads'))
+            ->select('A.id', 'A.document_no', 'A.urgency', 'A.ext', 'A.topic', 'A.sender_id', 'A.size', 'A.last_update', array($sql2, 'downloads'))
             ->from('edocument A');
         if ($id > 0) {
             // ไม่ใช่ผู้ดูแลดูได้แค่เอกสารของตัวเอง

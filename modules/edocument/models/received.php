@@ -45,7 +45,7 @@ class Model extends \Kotchasan\Model
             ->limit(1);
 
         return $model->db()->createQuery()
-            ->select('A.id', 'A.document_no', array($sql2, 'new'), 'A.ext', 'A.topic', 'A.sender_id', 'A.size', 'A.last_update')
+            ->select('A.id', 'A.document_no', 'A.urgency', array($sql2, 'new'), 'A.ext', 'A.topic', 'A.sender_id', 'A.last_update')
             ->from('edocument A')
             ->where(array('A.reciever', 'LIKE', '%,'.$login['status'].',%'));
     }
