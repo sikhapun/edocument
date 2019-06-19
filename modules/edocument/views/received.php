@@ -95,10 +95,6 @@ class View extends \Gcms\View
                     'text' => '{LNG_Sender}',
                     'class' => 'center',
                 ),
-                'size' => array(
-                    'text' => '{LNG_size of} {LNG_File}',
-                    'class' => 'center',
-                ),
                 'last_update' => array(
                     'text' => '{LNG_date}',
                     'class' => 'center',
@@ -120,9 +116,6 @@ class View extends \Gcms\View
                     'class' => 'center',
                 ),
                 'sender_id' => array(
-                    'class' => 'center',
-                ),
-                'size' => array(
                     'class' => 'center',
                 ),
                 'last_update' => array(

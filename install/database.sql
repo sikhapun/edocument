@@ -32,7 +32,7 @@ CREATE TABLE `{prefix}_language` (
 --
 
 CREATE TABLE `{prefix}_edocument` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `sender_id` int(11) UNSIGNED NOT NULL,
   `reciever` text COLLATE utf8_unicode_ci NOT NULL,
   `urgency` tinyint(1) NOT NULL DEFAULT 2,
@@ -62,13 +62,12 @@ INSERT INTO `{prefix}_edocument` (`id`, `sender_id`, `reciever`, `last_update`, 
 --
 
 CREATE TABLE `{prefix}_edocument_download` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `document_id` int(10) UNSIGNED NOT NULL,
-  `member_id` int(10) UNSIGNED NOT NULL,
-  `downloads` int(10) UNSIGNED NOT NULL,
-  `last_update` int(10) UNSIGNED NOT NULL
+  `id` int(11) NOT NULL,
+  `document_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `downloads` int(11) NOT NULL,
+  `last_update` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 
 -- --------------------------------------------------------
 
@@ -128,6 +127,7 @@ ALTER TABLE `{prefix}_user`
 --
 ALTER TABLE `{prefix}_edocument`
   ADD PRIMARY KEY (`id`);
+
 --
 -- Indexes for table `{prefix}_edocument_download`
 --

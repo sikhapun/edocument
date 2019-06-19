@@ -3,7 +3,7 @@
 /* config.php */
 
 return array(
-    'version' => '2.0.4',
+    'version' => '2.0.5',
     'edocument_format_no' => 'ที่ ศธ1234/%04d',
     'edocument_send_mail' => 1,
     'edocument_file_typies' => array(
@@ -31,4 +31,5 @@ return array(
         1 => '#FF0000',
         2 => '#0E0EDA',
     ),
+    'default_icon' => 'icon-tools',
 );
