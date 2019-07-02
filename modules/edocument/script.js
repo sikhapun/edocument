@@ -25,3 +25,11 @@ function initEdocumentView(id) {
     }
   });
 }
+
+function edocumentFileChanged() {
+  var topic = $E('topic'),
+    hs = /(.*)\.([a-z0-9]+)$/.exec(this.value);
+  if (hs && ($E('id').value == 0 || topic.value == '')) {
+    topic.value = hs[1];
+  }
+}
