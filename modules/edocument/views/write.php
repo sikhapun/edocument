@@ -96,6 +96,7 @@ class View extends \Gcms\View
             'comment' => '{LNG_Upload :type files no larger than :size}',
             'accept' => self::$cfg->edocument_file_typies,
             'onchange' => 'edocumentFileChanged',
+            'dataPreview' => 'filePreview',
         ));
         // detail
         $fieldset->add('textarea', array(
