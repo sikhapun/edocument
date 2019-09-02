@@ -25,7 +25,7 @@ use Kotchasan\Language;
 class Controller extends \Gcms\Controller
 {
     /**
-     * แสดงรายการเอกสาร.
+     * แสดงรายการเอกสาร
      *
      * @param Request $request
      *
@@ -33,37 +33,35 @@ class Controller extends \Gcms\Controller
      */
     public function render(Request $request)
     {
-        // ตรวจสอบรายการที่ต้องการ
+        // ตรวจสอบรายการที่เลือก
         $index = \Edocument\Report\Model::get($request->request('id')->toInt());
-        if ($index) {
-            // ข้อความ title bar
-            $this->title = Language::trans('{LNG_Download history} '.$index->topic);
-            // เลือกเมนู
-            $this->menu = 'edocument';
-            // Login
-            if ($login = Login::isMember()) {
-                // แสดงผล
-                $section = Html::create('section', array(
-                    'class' => 'content_bg',
-                ));
-                // breadcrumbs
-                $breadcrumbs = $section->add('div', array(
-                    'class' => 'breadcrumbs',
-                ));
-                $ul = $breadcrumbs->add('ul');
-                $ul->appendChild('<li><span class="icon-edocument">{LNG_E-Document}</span></li>');
-                $ul->appendChild('<li><a href="{BACKURL?module=edocument-sent&id=0}">{LNG_sent document}</a></li>');
-                $ul->appendChild('<li><span>'.$index->topic.'</span></li>');
-                $ul->appendChild('<li><span>{LNG_Download}</span></li>');
-                $section->add('header', array(
-                    'innerHTML' => '<h2 class="icon-list">'.$this->title.'</h2>',
-                ));
-                // รายละเอียดการรับหนังสือ
-                $section->appendChild(createClass('Edocument\Report\View')->render($request, $index));
-                // คืนค่า HTML
+        // ข้อความ title bar
+        $this->title = Language::trans('{LNG_Download history} '.$index->topic);
+        // เลือกเมนู
+        $this->menu = 'edocument';
+        // สมาชิก
+        if ($index && Login::isMember()) {
+            // แสดงผล
+            $section = Html::create('section', array(
+                'class' => 'content_bg',
+            ));
+            // breadcrumbs
+            $breadcrumbs = $section->add('div', array(
+                'class' => 'breadcrumbs',
+            ));
+            $ul = $breadcrumbs->add('ul');
+            $ul->appendChild('<li><span class="icon-edocument">{LNG_E-Document}</span></li>');
+            $ul->appendChild('<li><a href="{BACKURL?module=edocument-sent&id=0}">{LNG_sent document}</a></li>');
+            $ul->appendChild('<li><span>'.$index->topic.'</span></li>');
+            $ul->appendChild('<li><span>{LNG_Download}</span></li>');
+            $section->add('header', array(
+                'innerHTML' => '<h2 class="icon-list">'.$this->title.'</h2>',
+            ));
+            // รายละเอียดการรับหนังสือ
+            $section->appendChild(createClass('Edocument\Report\View')->render($request, $index));
+            // คืนค่า HTML
 
-                return $section->render();
-            }
+            return $section->render();
         }
         // 404
 

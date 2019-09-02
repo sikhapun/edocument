@@ -47,7 +47,7 @@ CREATE TABLE `{prefix}_edocument` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- dump ตาราง `{prefix}_edocument`
+-- Dumping data for table `{prefix}_edocument`
 --
 
 INSERT INTO `{prefix}_edocument` (`id`, `sender_id`, `reciever`, `last_update`, `document_no`, `detail`, `topic`, `ext`, `size`, `file`, `ip`) VALUES
@@ -86,7 +86,7 @@ CREATE TABLE `{prefix}_user` (
   `name` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `sex` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_card` varchar(13) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `provinceID` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `province` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,

@@ -24,7 +24,7 @@ use Kotchasan\Text;
 class View extends \Gcms\View
 {
     /**
-     * ฟอร์มตั้งค่า edocument.
+     * ฟอร์มตั้งค่า
      *
      * @return string
      */

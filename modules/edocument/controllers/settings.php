@@ -16,7 +16,7 @@ use Kotchasan\Http\Request;
 use Kotchasan\Language;
 
 /**
- * module=edocument-settings.
+ * module=edocument-settings
  *
  * @author Goragod Wiriya <admin@goragod.com>
  *
@@ -25,7 +25,7 @@ use Kotchasan\Language;
 class Controller extends \Gcms\Controller
 {
     /**
-     * ตั้งค่าโมดูล E-Document.
+     * ตั้งค่าโมดูล
      *
      * @param Request $request
      *

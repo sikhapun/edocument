@@ -15,7 +15,7 @@ use Kotchasan\Language;
 use Kotchasan\Text;
 
 /**
- * module=edocument-write.
+ * module=edocument-write
  *
  * @author Goragod Wiriya <admin@goragod.com>
  *
@@ -24,7 +24,7 @@ use Kotchasan\Text;
 class View extends \Gcms\View
 {
     /**
-     * ฟอร์มสร้าง/แก้ไข เอกสาร.
+     * ฟอร์มสร้าง/แก้ไข เอกสาร
      *
      * @param object $index
      * @param array  $login
@@ -113,7 +113,7 @@ class View extends \Gcms\View
         ));
         // submit
         $fieldset->add('submit', array(
-            'class' => 'button ok large',
+            'class' => 'button ok large icon-save',
             'value' => '{LNG_Save}',
         ));
         $fieldset->add('checkbox', array(

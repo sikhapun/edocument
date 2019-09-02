@@ -43,7 +43,7 @@ class View extends \Gcms\View
         $content[] = '<p class=tr><span class="td icon-rocket">{LNG_Urgency}</span><span class=td>:</span><span class=td>'.(isset($urgencies[$index->urgency]) ? $urgencies[$index->urgency] : '').'</span></p>';
         $content[] = '<p class=tr><span class="td icon-file">{LNG_Document title}</span><span class=td>:</span><span class=td>'.$index->topic.'</span></p>';
         $content[] = '<p class=tr><span class="td icon-customer">{LNG_Sender}</span><span class=td>:</span><span class=td>'.\Edocument\Sender\Model::init()->get($index->sender_id).'</span></p>';
-        $content[] = '<p class=tr><span class="td icon-calendar">{LNG_date}</span><span class=td>:</span><span class=td>'.($index->last_update == 0 ? '' : Date::format($index->last_update)).'</span></p>';
+        $content[] = '<p class=tr><span class="td icon-calendar">{LNG_Date}</span><span class=td>:</span><span class=td>'.($index->last_update == 0 ? '' : Date::format($index->last_update)).'</span></p>';
         $content[] = '<p class=tr><span class="td icon-edit">{LNG_Detail}</span><span class=td>:</span><span class=td>'.$index->detail.'</span></p>';
         $content[] = '<p class=tr><span class="td icon-star0">{LNG_Status}</span><span class=td>:</span>';
         if (empty($index->new)) {

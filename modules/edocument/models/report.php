@@ -20,7 +20,7 @@ namespace Edocument\Report;
 class Model extends \Kotchasan\Model
 {
     /**
-     * อ่านข้อมูลเอกสารที่เลือก
+     * อ่านข้อมูลที่เลือก
      *
      * @param int $id ID
      *
@@ -39,7 +39,7 @@ class Model extends \Kotchasan\Model
      *
      * @param int $id ID
      *
-     * @return \static
+     * @return \Kotchasan\Database\QueryBuilder
      */
     public static function toDataTable($id)
     {

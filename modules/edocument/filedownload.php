@@ -10,33 +10,22 @@
 // session
 @session_cache_limiter('none');
 @session_start();
+if (isset($_GET['id']) && isset($_SESSION[$_GET['id']])) {
 // datas
-$file = $_SESSION[$_GET['id']];
-if (is_file($file['file'])) {
-    $f = @fopen($file['file'], 'rb');
-    if ($f) {
+    $file = $_SESSION[$_GET['id']];
+    if (is_file($file['file'])) {
         // ดาวน์โหลดไฟล์
-        header('Pragma: public');
-        header('Expires: -1');
-        header('Cache-Control: public, must-revalidate, post-check=0, pre-check=0');
+        header('Cache-Control: public, must-revalidate');
+        header('Pragma: no-cache');
+        header('Content-Type: '.$file['mime']);
+        header('Content-Length: '.filesize($file['file']));
         if ($file['name'] != '') {
             header('Content-Disposition: attachment; filename='.$file['name']);
         }
-        header('Content-Type: '.$file['mime']);
-        header('Content-Length: '.filesize($file['file']));
+        header('Content-Transfer-Encoding: binary');
         header('Accept-Ranges: bytes');
-        while (!feof($f)) {
-            echo @fread($f, 1024 * 8);
-            ob_flush();
-            flush();
-            if (connection_status() != 0) {
-                @fclose($f);
-                exit;
-            }
-        }
-        @fclose($f);
+        readfile($file['file']);
         exit;
     }
-} else {
-    header('HTTP/1.0 404 Not Found');
 }
+header('HTTP/1.0 404 Not Found');

@@ -57,7 +57,7 @@ class Model extends \Kotchasan\Model
                             $model->db()->update($model->getTableName('edocument_download'), (int) $result->download_id, $save);
                         }
                         // id สำหรบไฟล์ดาวน์โหลด
-                        $id = \Kotchasan\Text::rndname(32);
+                        $id = uniqid();
                         // บันทึกรายละเอียดการดาวน์โหลดลง SESSION
                         $_SESSION[$id] = array(
                             'file' => $file,

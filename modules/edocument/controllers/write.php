@@ -16,7 +16,7 @@ use Kotchasan\Http\Request;
 use Kotchasan\Language;
 
 /**
- * module=edocument-write.
+ * module=edocument-write
  *
  * @author Goragod Wiriya <admin@goragod.com>
  *
@@ -42,7 +42,7 @@ class Controller extends \Gcms\Controller
         $this->title = Language::trans($title.' {LNG_E-Document}');
         // เลือกเมนู
         $this->menu = 'edocument';
-        // สามารถจัดการรายชื่อบุคลากรได้
+        // สามารถอัปโหลดได้
         if ($index && Login::checkPermission($login, 'can_upload_edocument')) {
             // แสดงผล
             $section = Html::create('section', array(

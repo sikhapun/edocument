@@ -53,7 +53,7 @@ class View extends \Gcms\View
             /* Model */
             'model' => \Edocument\Received\Model::toDataTable($login),
             /* รายการต่อหน้า */
-            'perPage' => $request->cookie('received_perPage', 30)->toInt(),
+            'perPage' => $request->cookie('edocumentReceived_perPage', 30)->toInt(),
             /* เรียงลำดับ */
             'sort' => 'new,last_update DESC',
             /* ฟังก์ชั่นจัดรูปแบบการแสดงผลแถวของตาราง */
@@ -96,7 +96,7 @@ class View extends \Gcms\View
                     'class' => 'center',
                 ),
                 'last_update' => array(
-                    'text' => '{LNG_date}',
+                    'text' => '{LNG_Date}',
                     'class' => 'center',
                 ),
                 'downloads' => array(
@@ -135,7 +135,7 @@ class View extends \Gcms\View
             ),
         ));
         // save cookie
-        setcookie('received_perPage', $table->perPage, time() + 2592000, '/', HOST, HTTPS, true);
+        setcookie('edocumentReceived_perPage', $table->perPage, time() + 2592000, '/', HOST, HTTPS, true);
 
         return $table->render();
     }

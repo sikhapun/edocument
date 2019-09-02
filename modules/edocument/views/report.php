@@ -15,7 +15,7 @@ use Kotchasan\Date;
 use Kotchasan\Http\Request;
 
 /**
- * module=edocument-report.
+ * module=edocument-report
  *
  * @author Goragod Wiriya <admin@goragod.com>
  *
