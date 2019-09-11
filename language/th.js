@@ -1,6 +1,7 @@
 var CANCEL = 'ยกเลิก';
 var CHANGE_COLOR = 'เปลี่ยนสี';
 var CHECK = 'เลือก';
+var CHECKBOX = 'ตัวเลือก';
 var DELETE = 'ลบ';
 var DISABLE = 'ปิดใช้งาน';
 var DOWNLOADING_IS_A_SIGNED_DOCUMENT = 'การดาวน์โหลดถือเป็นการลงชื่อรับเอกสาร';

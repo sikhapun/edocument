@@ -276,7 +276,7 @@ abstract class Driver extends Query
 
     /**
      * ฟังก์ชั่น query ข้อมูล คืนค่าข้อมูลทุกรายการที่ตรงตามเงื่อนไข
-     *  คืนค่า แอเรย์ของ object ไม่พบคืนค่าแอรย์ว่าง.
+     * คืนค่า แอเรย์ของ object ไม่พบคืนค่าแอรย์ว่าง.
      *
      * @param string $table_name ชื่อตาราง
      * @param mixed  $condition  query WHERE
