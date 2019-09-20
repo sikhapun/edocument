@@ -375,7 +375,7 @@ abstract class Driver extends Query
 
     /**
      * ฟังก์ชั่นเพิ่มข้อมูลใหม่ลงในตาราง
-     * ถ้ามีข้อมูลเดิมอยู่แล้วจะเป็นการอัปเดท
+     * ถ้ามีข้อมูลเดิมอยู่แล้วจะเป็นการอัปเดต
      * (ข้อมูลเดิมตาม KEY ที่เป็น UNIQUE)
      * insert คืนค่า id ที่เพิ่ม
      * update คืนค่า 0
@@ -499,7 +499,7 @@ abstract class Driver extends Query
     abstract public function update($table_name, $condition, $save);
 
     /**
-     * อัปเดทข้อมูลทุก record
+     * อัปเดตข้อมูลทุก record
      * สำเร็จ คืนค่า true, ผิดพลาด คืนค่า false.
      *
      * @param string $table_name table name

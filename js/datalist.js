@@ -12,6 +12,10 @@
   Datalist.prototype = {
     initialize: function(text) {
       this.input = $G(text);
+      if (this.input.getAttribute('Datalist') == true){
+        return;
+      }
+      this.input.setAttribute('Datalist', true);
       this.hidden = document.createElement("input");
       this.hidden.type = 'hidden';
       this.hidden.name = this.input.id || this.input.name;

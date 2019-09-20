@@ -35,12 +35,14 @@ class Controller extends \Gcms\Controller
     {
         // ตรวจสอบรายการที่เลือก
         $index = \Edocument\Report\Model::get($request->request('id')->toInt());
-        // ข้อความ title bar
-        $this->title = Language::trans('{LNG_Download history} '.$index->topic);
         // เลือกเมนู
         $this->menu = 'edocument';
+        // ข้อความ title bar
+        $this->title = Language::get('Download history');
         // สมาชิก
         if ($index && Login::isMember()) {
+            // ข้อความ title bar
+            $this->title .= ' '.$index->topic;
             // แสดงผล
             $section = Html::create('section', array(
                 'class' => 'content_bg',

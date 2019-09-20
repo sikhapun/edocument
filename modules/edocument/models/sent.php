@@ -99,7 +99,7 @@ class Model extends \Kotchasan\Model
                             $file = ROOT_PATH.DATA_FOLDER.'edocument/'.$result->file;
                             if (is_file($file)) {
                                 // id สำหรับไฟล์ดาวน์โหลด
-                                $id = \Kotchasan\Text::rndname(32);
+                                $id = md5(uniqid());
                                 // บันทึกรายละเอียดการดาวน์โหลดลง SESSION
                                 $_SESSION[$id] = array(
                                     'file' => $file,

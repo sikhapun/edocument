@@ -92,8 +92,7 @@ class Model extends \Kotchasan\Model
      */
     public static function get($id, $login)
     {
-        $model = new static();
-        $sql2 = $model->db()->createQuery()
+        $sql2 = static::createQuery()
             ->select('E.downloads')
             ->from('edocument_download E')
             ->where(array(
@@ -101,7 +100,7 @@ class Model extends \Kotchasan\Model
                 array('E.member_id', (int) $login['id']),
             ))
             ->limit(1);
-        $search = $model->db()->createQuery()
+        $search = static::createQuery()
             ->from('edocument A')
             ->where(array('A.id', $id))
             ->first('A.id', 'A.document_no', array($sql2, 'new'), 'A.topic', 'A.ext', 'A.sender_id', 'A.size', 'A.last_update', 'A.reciever', 'A.detail');
