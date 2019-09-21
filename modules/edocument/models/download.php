@@ -59,11 +59,18 @@ class Model extends \Kotchasan\Model
                         // id สำหรบไฟล์ดาวน์โหลด
                         $id = uniqid();
                         // บันทึกรายละเอียดการดาวน์โหลดลง SESSION
-                        $_SESSION[$id] = array(
+                        $file = array(
                             'file' => $file,
-                            'name' => self::$cfg->edocument_download_action == 1 ? '' : $result->topic.'.'.$result->ext,
-                            'mime' => self::$cfg->edocument_download_action == 1 ? \Kotchasan\Mime::get($result->ext) : 'application/octet-stream',
+                            'size' => filesize($file),
                         );
+                        if (self::$cfg->edocument_download_action == 1 && in_array($result->ext, array('pdf', 'jpg', 'jpeg', 'png', 'gif'))) {
+                            $file['name'] = '';
+                            $file['mime'] = \Kotchasan\Mime::get($result->ext);
+                        } else {
+                            $file['name'] = $result->topic.'.'.$result->ext;
+                            $file['mime'] = 'application/octet-stream';
+                        }
+                        $_SESSION[$id] = $file;
                         // คืนค่า
                         $ret['target'] = self::$cfg->edocument_download_action;
                         $ret['url'] = WEB_URL.'modules/edocument/filedownload.php?id='.$id;
