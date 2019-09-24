@@ -99,7 +99,7 @@ return array(
   'Expiration date' => 'วันหมดอายุ',
   'Fax' => 'โทรสาร',
   'File' => 'ไฟล์',
-  'File Name' => 'ชื่อไฟล์',
+  'File name' => 'ชื่อไฟล์',
   'File not found' => 'ไม่พบไฟล์ที่ต้องการ',
   'File size is less than :size' => 'ขนาดของไฟล์ไม่เกิน :size',
   'Fill in the repair costs you want to inform the customer' => 'กรอกค่าใช้จ่ายในการซ่อมที่ต้องการแจ้งให้ลูกค้าทราบ',

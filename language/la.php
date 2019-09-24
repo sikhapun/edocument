@@ -100,7 +100,7 @@ return array(
   'Expiration date' => 'ວັນໝົດອາຍຸ',
   'Fax' => 'ໂທລະສານ',
   'File' => 'ແຟ້ມ',
-  'File Name' => 'ຊື່ແຟ້ມຂໍ້ມູນ',
+  'File name' => 'ຊື່ແຟ້ມຂໍ້ມູນ',
   'File not found' => 'ບໍ່ພົບແຟ້ມທີ່ຕ້ອງການ',
   'File size is less than :size' => 'ຂະໜາດຂອງແຟ້ມບໍ່ເກີນ:size',
   'Fill in the repair costs you want to inform the customer' => 'ກອກຄ່າໃຊ້ຈ່າຍໃນການຊ່ອມທີ່ຕ້ອງການແຈ້ງໃຫ້ລູກຄ້າທາບ',
